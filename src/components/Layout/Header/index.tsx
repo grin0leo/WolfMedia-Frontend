@@ -36,19 +36,19 @@ export function Header() {
                 {/*Соц сети */}
                 <div className={styles.social}>
                     <button aria-label="Перейти в нашу группу ВК">
-                        <Image src='/Layout/Header/VK.svg' alt="Иконка ВК" width={24} height={24} />
+                        <Image src='/Layout/VK.svg' alt="Иконка ВК" width={24} height={24} />
                     </button>
 
                     <button aria-label="Перейти в нашу группу Одноклассники">
-                        <Image src='/Layout/Header/OK.svg' alt="Иконка ВК" width={24} height={24} />
+                        <Image src='/Layout/OK.svg' alt="Иконка Одноклассники" width={24} height={24} />
                     </button>
 
                     <button aria-label="Перейти в нашу группу Facebook">
-                        <Image src='/Layout/Header/Facebook.svg' alt="Иконка ВК" width={24} height={24} />
+                        <Image src='/Layout/Facebook.svg' alt="Иконка Facebook" width={24} height={24} />
                     </button>
 
                     <button aria-label="Перейти в нашу группу Twitter">
-                        <Image src='/Layout/Header/Twitter.svg' alt="Иконка ВК" width={24} height={24} />
+                        <Image src='/Layout/Twitter.svg' alt="Иконка Twitter" width={24} height={24} />
                     </button>
                 </div>
 

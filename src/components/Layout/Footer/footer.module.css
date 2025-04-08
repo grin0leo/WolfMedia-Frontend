@@ -1,0 +1,102 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color5);
+    padding: 30px 0px;
+
+    @media (max-width:1200px) {
+        padding: 30px 40px;
+
+    }
+
+    @media (max-width: 900px) {
+        padding: 15px 20px;
+
+    }
+}
+
+.container {
+    max-width: 1170px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width:600px) {
+        gap: 99px;
+    }
+}
+
+
+
+.logo {
+    display: block;
+
+    @media (max-width:600px) {
+        display: none;
+    }
+}
+
+.logoMobile {
+    display: none;
+
+    @media (max-width:600px) {
+        display: block;
+    }
+
+}
+
+
+.text_desktop {
+    color: var(--color2);
+    font-size: 14px;
+
+    @media (max-width:900px) {
+        display: none;
+    }
+
+}
+
+.text_tablet {
+    color: var(--color2);
+    font-size: 14px;
+    display: none;
+
+    @media (max-width:900px) {
+        display: block;
+    }
+}
+
+/* Блок навигации и ссылок */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 49px;
+
+    @media (max-width:600px) {
+        gap: 0;
+        justify-content: space-between;
+    }
+
+}
+
+/* Соц сети */
+.social {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Номер телефона */
+.phone {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+
+    .phone__text {
+        font-size: 18px;
+        color: var(--color2);
+        text-wrap: nowrap;
+    }
+}
