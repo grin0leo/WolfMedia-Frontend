@@ -23,6 +23,12 @@ button {
   color: white;
 }
 
+ul {
+  list-style-type: none;
+}
+
+
+
 * {
   box-sizing: border-box;
   padding: 0;

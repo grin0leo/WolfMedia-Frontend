@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./header.module.css";
+import { SocialList } from "../SocialList";
 
 export function Header() {
 
@@ -34,23 +35,10 @@ export function Header() {
             <div className={styles.contacts}>
 
                 {/*Соц сети */}
-                <div className={styles.social}>
-                    <button aria-label="Перейти в нашу группу ВК">
-                        <Image src='/Layout/VK.svg' alt="Иконка ВК" width={24} height={24} />
-                    </button>
+                <ul className={styles.social}>
+                    <SocialList />
+                </ul>
 
-                    <button aria-label="Перейти в нашу группу Одноклассники">
-                        <Image src='/Layout/OK.svg' alt="Иконка Одноклассники" width={24} height={24} />
-                    </button>
-
-                    <button aria-label="Перейти в нашу группу Facebook">
-                        <Image src='/Layout/Facebook.svg' alt="Иконка Facebook" width={24} height={24} />
-                    </button>
-
-                    <button aria-label="Перейти в нашу группу Twitter">
-                        <Image src='/Layout/Twitter.svg' alt="Иконка Twitter" width={24} height={24} />
-                    </button>
-                </div>
 
                 {/* Номер телефона */}
                 <button className={styles.phone} aria-label="Позвонить на по номеру телефона +7 495 257 55 65">
