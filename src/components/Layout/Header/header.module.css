@@ -1,0 +1,112 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    padding: 20px 30px;
+    border-bottom: 2px solid rgba(146, 115, 152, 0.2);
+
+    @media (max-width: 900px) {
+        padding: 15px 20px;
+    }
+}
+
+/* Бургер меню */
+.burgerMenu {
+    display: none;
+
+    @media (max-width: 425px) {
+        display: block;
+    }
+}
+
+/* Навигация */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    & .nav__list {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        @media (max-width: 900px) {
+            gap: 29px;
+        }
+
+        @media (max-width: 425px) {
+            display: none;
+        }
+
+
+    }
+}
+
+
+.contacts {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    /* Социальные сети */
+    .social {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @media (max-width:1280px) {
+            display: none;
+        }
+    }
+
+    /*Написать нам на почту */
+    .mail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+        padding: 15px 30px;
+
+        .mail__item_desktop {
+            font-size: 14px;
+            width: 100%;
+
+            @media (max-width:900px) {
+                display: none;
+            }
+
+        }
+
+        .mail__item_tablet {
+            display: none;
+
+            @media (max-width:900px) {
+                display: block;
+            }
+        }
+
+
+        @media (max-width:900px) {
+            padding: 11px 16px;
+        }
+    }
+
+    /* Позвонить нам */
+    .phone {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @media (max-width:600px) {
+            display: none;
+        }
+
+        @media (max-width:425px) {
+            display: block;
+        }
+    }
+
+
+}
