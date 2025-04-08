@@ -1,4 +1,6 @@
-:root {}
+:root {
+  --color2: rgba(146, 115, 152, 1);
+}
 
 html,
 body {

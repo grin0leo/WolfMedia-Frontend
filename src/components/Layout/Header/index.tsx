@@ -14,13 +14,18 @@ export function Header() {
 
             {/* Контейнер с nav  */}
             <div className={styles.nav}>
-                <Image src='/Layout/Header/Logo.svg' alt="Логотип" width={286} height={70} />
+                <Image className={styles.nav__logo} src='/Layout/Header/Logo.svg' alt="Логотип" width={286} height={70} />
+                <Image className={styles.nav__logoMobile} src='/Layout/Header/LogoMobile.svg' alt="Логотип" width={40} height={40} />
+
                 <nav className={styles.nav__list}>
                     {/* Сделать через Link??? */}
-                    <button className={styles.nav__item}>О нас</button>
-                    <button className={styles.nav__item}>О нас</button>
-                    <button className={styles.nav__item}>О нас</button>
-                    <button className={styles.nav__item}>О нас</button>
+                    <button className={styles.nav__item}>
+                        О НАС
+                        {/* <span></span> */}
+                    </button>
+                    <button className={styles.nav__item}>ПОРТФОЛИО</button>
+                    <button className={styles.nav__item}>УСЛУГИ</button>
+                    <button className={styles.nav__item}>КОНТАКТЫ</button>
                 </nav>
             </div>
 
@@ -34,15 +39,15 @@ export function Header() {
                         <Image src='/Layout/Header/VK.svg' alt="Иконка ВК" width={24} height={24} />
                     </button>
 
-                    <button aria-label="Перейти в нашу группу ВК">
+                    <button aria-label="Перейти в нашу группу Одноклассники">
                         <Image src='/Layout/Header/OK.svg' alt="Иконка ВК" width={24} height={24} />
                     </button>
 
-                    <button aria-label="Перейти в нашу группу ВК">
+                    <button aria-label="Перейти в нашу группу Facebook">
                         <Image src='/Layout/Header/Facebook.svg' alt="Иконка ВК" width={24} height={24} />
                     </button>
 
-                    <button aria-label="Перейти в нашу группу ВК">
+                    <button aria-label="Перейти в нашу группу Twitter">
                         <Image src='/Layout/Header/Twitter.svg' alt="Иконка ВК" width={24} height={24} />
                     </button>
                 </div>
@@ -50,19 +55,15 @@ export function Header() {
                 {/* Номер телефона */}
                 <button className={styles.phone} aria-label="Позвонить на по номеру телефона +7 495 257 55 65">
                     <Image src='/Layout/Header/Phone.svg' alt="Иконка телефона" aria-hidden='true' width={24} height={24} />
-                    +7 495 257 55 65
+                    <span className={styles.phone__text}>+7 495 257 55 65</span>
                 </button>
 
                 {/* Почта */}
                 <button className={styles.mail} aria-label="Отправить сообщение нам на почту">
-                    <span className={styles.mail__item_desktop}>Написать нам</span>
+                    <span className={styles.mail__item_desktop}>НАПИСАТЬ НАМ</span>
                     <Image className={styles.mail__item_tablet} src='/Layout/Header/Mail.svg' width={24} height={19} alt="Иконка Почты" aria-hidden='true' />
                 </button>
             </div>
-
-
-
-
 
         </header>
     )
