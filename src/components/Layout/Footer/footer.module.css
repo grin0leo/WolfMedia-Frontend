@@ -26,6 +26,10 @@
     @media (max-width:600px) {
         gap: 99px;
     }
+
+    @media (max-width:560px) {
+        gap: 0;
+    }
 }
 
 
@@ -55,7 +59,6 @@
     @media (max-width:900px) {
         display: none;
     }
-
 }
 
 .text_tablet {
@@ -66,6 +69,21 @@
     @media (max-width:900px) {
         display: block;
     }
+
+    @media (max-width:560px) {
+        display: none;
+    }
+}
+
+.text_mobile {
+    display: none;
+    color: var(--color2);
+    font-size: 11px;
+
+    @media (max-width:560px) {
+        display: block;
+
+    }
 }
 
 /* Блок навигации и ссылок */
@@ -74,9 +92,14 @@
     align-items: center;
     gap: 49px;
 
-    @media (max-width:600px) {
-        gap: 0;
-        justify-content: space-between;
+    @media (max-width:768px) {
+        gap: 39px;
+    }
+
+    @media (max-width:560px) {
+        flex-direction: column;
+        gap: 10px;
+        align-items: start;
     }
 
 }

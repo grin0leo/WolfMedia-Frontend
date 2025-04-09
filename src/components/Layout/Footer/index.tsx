@@ -17,8 +17,6 @@ export function Footer() {
                 <Image className={styles.logoMobile} src={"/Layout/Footer/LogoMobile.svg"} width={51} height={51} alt="Логотип иконка" />
                 <span className={styles.text_desktop}>Copyright 2019 (c) All rights reserved.</span>
                 <nav className={styles.nav}>
-
-
                     {/* Соцсети */}
                     <ul className={styles.social}>
                         <SocialList />
@@ -28,6 +26,7 @@ export function Footer() {
                         <Image src='/Layout/Footer/Phone.svg' alt="Иконка телефона" aria-hidden='true' width={24} height={24} />
                         <span className={styles.phone__text}>+7 495 257 55 65</span>
                     </button>
+                    <span className={styles.text_mobile}>Copyright 2019 (c) All rights reserved.</span>
                 </nav>
             </div>
             <span className={styles.text_tablet}>Copyright 2019 (c) All rights reserved.</span>
