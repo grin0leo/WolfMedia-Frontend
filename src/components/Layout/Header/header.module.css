@@ -1,6 +1,9 @@
 /* TODO добавить position fixed */
 
 .header {
+    position: fixed;
+    width: 100vw;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,8 +15,6 @@
     @media (max-width: 900px) {
         padding: 15px 20px;
     }
-
-
 
 }
 
@@ -139,8 +140,18 @@
     border: 2px solid white;
     padding: 15px 30px;
 
+    transition: ease-in-out 300ms;
+
+    &:hover {
+        scale: 1.05;
+    }
+
     @media (max-width:535px) {
         display: none;
+    }
+
+    @media (max-width: 1200px) {
+        padding: 11px 16px;
     }
 
     .mail__item_desktop {
@@ -164,9 +175,6 @@
     }
 
 
-    @media (max-width: 1200px) {
-        padding: 11px 16px;
-    }
 }
 
 /* Позвонить нам */
@@ -177,7 +185,6 @@
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
-
 
     @media (max-width:750px) {
         display: none;

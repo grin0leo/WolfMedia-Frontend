@@ -2,18 +2,20 @@ import Image from "next/image";
 import styles from "./header.module.css";
 import { SocialList } from "../SocialList";
 import Link from "next/link";
+import { BurgerMenu } from "../BurgerMenu";
 
 export function Header() {
     const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
 
     return (
 
-        <header className={styles.header}>
+        <header className={styles.header} >
 
-            {/* Бургер меню */}
-            <button className={styles.burgerMenu}>
+            {/* Бургер меню кнопка  */}
+            {/* <button className={styles.burgerMenu} id="burger-button" >
                 <Image src='/Layout/Header/Burger.svg' width={24} height={16} alt="Иконка бокового меню" aria-label="Открыть боковое меню" />
-            </button>
+            </button> */}
+            <BurgerMenu />
 
             {/* Контейнер с nav  */}
             <div className={styles.nav}>
@@ -31,7 +33,6 @@ export function Header() {
 
             {/* Контейнер с контактами*/}
             <div className={styles.contacts}>
-
                 {/*Соц сети */}
                 <ul className={styles.social}>
                     <SocialList />

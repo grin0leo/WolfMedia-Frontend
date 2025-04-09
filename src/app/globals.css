@@ -17,8 +17,9 @@ body {
   background-position: start;
   background-size: cover;
 
-  font-family: (--font-CeraPro);
+  font-family: var(--font-CeraPro);
   font-weight: 400;
+  color: white;
 }
 
 button {

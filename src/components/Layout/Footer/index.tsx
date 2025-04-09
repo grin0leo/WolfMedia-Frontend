@@ -26,11 +26,6 @@ export function Footer() {
                 </nav>
             </div>
             <span className={styles.text_tablet}>Copyright 2019 (c) All rights reserved.</span>
-
-
-
-
-
         </footer>
     )
 

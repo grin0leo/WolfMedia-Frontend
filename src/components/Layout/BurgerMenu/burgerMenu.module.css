@@ -1,23 +1,53 @@
-.nav {
+.burgerContainer {
+    position: relative;
+    z-index: 1000;
+}
+
+.burgerButton {
+    display: none;
+    width: 24px;
+    height: 24px;
+    font-size: 30px;
+
+    @media (max-width: 535px) {
+        display: block;
+    }
+}
+
+.aside {
+    z-index: 10;
     display: flex;
     flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+
+    width: 58vw;
 
     background-color: var(--color5);
 
     position: fixed;
     top: 67px;
     left: 0;
-    width: 100%;
     height: calc(100vh - 67px);
     padding: 30px 15px;
 
     /*  */
     transition: transform 0.3s ease;
     transform: translateX(-100%);
+
+    @media (min-width: 535px) {
+        display: none;
+    }
+}
+
+.aside.active {
+    transform: translateX(0);
 }
 
 .nav__list {
     gap: 29px;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav__item {
@@ -28,5 +58,87 @@
 
     &:hover {
         color: white;
+    }
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    max-width: 158px;
+    gap: 12px;
+}
+
+
+.mail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    padding: 15px 30px;
+    text-wrap: nowrap;
+    font-weight: 500;
+}
+
+/* Позвонить нам */
+.phone {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+        .phone__text::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        img {
+            animation: shake 0.5s ease;
+        }
+    }
+
+    .phone__text {
+        text-wrap: nowrap;
+        position: relative;
+        font-size: 14px;
+        font-family: (--font-CeraPro);
+        font-weight: 400;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            scale: 1.2;
+            background-color: white;
+            transition: width 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
     }
 }

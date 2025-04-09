@@ -9,17 +9,11 @@
     }
 }
 
-.item {
-    perspective: 800px;
-
-}
-
 .item a {
     width: 24px;
     height: 24px;
-    display: inline-block;
+    display: flex;
     transition: transform 0.8s ease, filter 0.3s ease;
-    transform-style: preserve-3d;
 }
 
 .item a:hover {

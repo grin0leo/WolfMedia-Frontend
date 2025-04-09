@@ -1,13 +1,14 @@
 import Image from "next/image";
 import styles from "./socialList.module.css";
+import Link from "next/link";
 
 
 function SocialLink({ name, path, link }: { name: string; path: string; link: string }) {
     return (
         <li className={styles.item}>
-            <a href={link} aria-label={`Перейти в нашу группу ${name}`}>
+            <Link href={link} aria-label={`Перейти в нашу группу ${name}`}>
                 <Image src={path} alt={`Иконка ${name}`} width={24} height={24} />
-            </a>
+            </Link>
         </li>
     )
 }

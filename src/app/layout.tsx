@@ -13,6 +13,11 @@ const CeraPro = localFont({
     style: 'normal'
   },
   {
+    path: '../fonts/CeraPro-Regular.woff2',
+    weight: '500',
+    style: 'normal'
+  },
+  {
     path: '../fonts/CeraPro-Bold.woff2',
     weight: '700',
     style: 'bold'
