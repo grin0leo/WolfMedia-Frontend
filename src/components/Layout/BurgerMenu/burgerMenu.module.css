@@ -1,0 +1,32 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color5);
+
+    position: fixed;
+    top: 67px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 67px);
+    padding: 30px 15px;
+
+    /*  */
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+.nav__list {
+    gap: 29px;
+}
+
+.nav__item {
+    text-wrap: nowrap;
+    color: var(--color2);
+    transition: ease-in-out 300ms;
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+    }
+}
