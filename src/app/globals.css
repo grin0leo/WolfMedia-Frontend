@@ -1,6 +1,8 @@
 :root {
   --color2: rgba(146, 115, 152, 1);
   --color5: rgba(59, 35, 65, 1);
+
+
 }
 
 html,
@@ -14,6 +16,9 @@ body {
   background-repeat: no-repeat;
   background-position: start;
   background-size: cover;
+
+  font-family: (--font-CeraPro);
+  font-weight: 400;
 }
 
 button {
