@@ -1,8 +1,6 @@
-/* TODO добавить position fixed */
-
 .header {
     position: fixed;
-    width: 100vw;
+    width: 100%;
 
     display: flex;
     align-items: center;
@@ -11,6 +9,13 @@
 
     padding: 20px 30px;
     border-bottom: 2px solid rgba(146, 115, 152, 0.2);
+
+
+    /* либо скролл анмацию при которой у хедера меняется bg на темный  */
+    background-image: url(/Desktop.png);
+    background-repeat: no-repeat;
+    background-position: start;
+    background-size: cover;
 
     @media (max-width: 900px) {
         padding: 15px 20px;

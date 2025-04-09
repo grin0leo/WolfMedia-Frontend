@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./socialList.module.css";
 import Link from "next/link";
+import { socialLinks } from "./model/constants";
 
 
 function SocialLink({ name, path, link }: { name: string; path: string; link: string }) {
@@ -13,8 +14,6 @@ function SocialLink({ name, path, link }: { name: string; path: string; link: st
     )
 }
 export function SocialList() {
-    const socialLinks = [['ВК', '/Layout/VK.svg', 'https://vk.com'], ['Одноклассники', '/Layout/OK.svg', 'https://ok.ru'], ['Facebook', '/Layout/Facebook.svg', 'https://www.facebook.com'], ['Twitter', '/Layout/Twitter.svg', 'https://www.twitter.com']]
-
     return (
         <>
             {socialLinks.map((btn, index) => (

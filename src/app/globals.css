@@ -1,15 +1,14 @@
 :root {
   --color2: rgba(146, 115, 152, 1);
   --color5: rgba(59, 35, 65, 1);
-
-
+  --accent-color: rgba(242, 92, 58, 1);
+  --opacity2: rgba(146, 115, 152, 0.5);
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-
 
   background-color: rgba(47, 22, 52, 1);
   background-image: url(/Desktop.png);
@@ -22,11 +21,13 @@ body {
   color: white;
 }
 
+
 button {
   background: none;
   border: none;
   cursor: pointer;
   color: white;
+  font-family: inherit;
 }
 
 ul {

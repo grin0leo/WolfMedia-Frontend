@@ -4,20 +4,18 @@ import { SocialList } from "../SocialList";
 import Link from "next/link";
 import { BurgerMenu } from "../BurgerMenu";
 
+
+// TODO вынесте кнопку из бургер меню и сделать useState внутри хедера, а состояние прокидывать через пропс
+// TODO вынести блок с телефоном  и блок с написать нам ЗАРЕФАКТОРИТЬ 
+// TODO Сделать ховер + эктив для кнопки написать нам 
 export function Header() {
     const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
 
     return (
 
         <header className={styles.header} >
-
-            {/* Бургер меню кнопка  */}
-            {/* <button className={styles.burgerMenu} id="burger-button" >
-                <Image src='/Layout/Header/Burger.svg' width={24} height={16} alt="Иконка бокового меню" aria-label="Открыть боковое меню" />
-            </button> */}
             <BurgerMenu />
 
-            {/* Контейнер с nav  */}
             <div className={styles.nav}>
                 <Image className={styles.nav__logo} src='/Layout/Header/Logo.svg' alt="Логотип" width={286} height={70} />
                 <Image className={styles.nav__logoMobile} src='/Layout/Header/LogoMobile.svg' alt="Логотип" width={40} height={40} />
@@ -31,21 +29,18 @@ export function Header() {
             </div>
 
 
-            {/* Контейнер с контактами*/}
+
             <div className={styles.contacts}>
-                {/*Соц сети */}
+
                 <ul className={styles.social}>
                     <SocialList />
                 </ul>
 
-
-                {/* Номер телефона */}
                 <button className={styles.phone} aria-label="Позвонить на по номеру телефона +7 495 257 55 65">
                     <Image src='/Layout/Header/Phone.svg' alt="Иконка телефона" aria-hidden='true' width={24} height={24} />
                     <span className={styles.phone__text}>+7 495 257 55 65</span>
                 </button>
 
-                {/* Почта */}
                 <button className={styles.mail} aria-label="Отправить сообщение нам на почту">
                     <span className={styles.mail__item_desktop}>НАПИСАТЬ НАМ</span>
                     <Image className={styles.mail__item_tablet} src='/Layout/Header/Mail.svg' width={24} height={19} alt="Иконка Почты" aria-hidden='true' />

@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={CeraPro.className}>
+    <html lang="en" className={CeraPro.variable}>
       <body>
         <Header />
         {children}

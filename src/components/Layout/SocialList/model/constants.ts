@@ -1,0 +1,1 @@
+export const socialLinks = [['ВК', '/Layout/VK.svg', 'https://vk.com'], ['Одноклассники', '/Layout/OK.svg', 'https://ok.ru'], ['Facebook', '/Layout/Facebook.svg', 'https://www.facebook.com'], ['Twitter', '/Layout/Twitter.svg', 'https://www.twitter.com']]
