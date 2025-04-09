@@ -1,8 +1,10 @@
 import Image from "next/image";
 import styles from "./header.module.css";
 import { SocialList } from "../SocialList";
+import Link from "next/link";
 
 export function Header() {
+    const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
 
     return (
 
@@ -19,14 +21,10 @@ export function Header() {
                 <Image className={styles.nav__logoMobile} src='/Layout/Header/LogoMobile.svg' alt="Логотип" width={40} height={40} />
 
                 <nav className={styles.nav__list}>
-                    {/* Сделать через Link??? */}
-                    <button className={styles.nav__item}>
-                        О НАС
-                        {/* <span></span> */}
-                    </button>
-                    <button className={styles.nav__item}>ПОРТФОЛИО</button>
-                    <button className={styles.nav__item}>УСЛУГИ</button>
-                    <button className={styles.nav__item}>КОНТАКТЫ</button>
+                    {pages.map((btn, index) => (
+                        <Link href={btn[1]} key={btn[0]} className={styles.nav__item}>{btn[0]}</Link>
+                        // СДЕЛАТЬ ПОДЧЕРКИВАНИЕ ЧЕРЕЗ SPAN + REDUX
+                    ))}
                 </nav>
             </div>
 

@@ -64,6 +64,7 @@
         text-wrap: nowrap;
         color: var(--color2);
         transition: ease-in-out 300ms;
+        text-decoration: none;
 
         &:hover {
             color: white;
