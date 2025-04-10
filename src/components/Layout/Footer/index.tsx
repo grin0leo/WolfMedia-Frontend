@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./footer.module.css";
 import { SocialList } from "../SocialList";
+import { PhoneButton } from "@/shared/ui/PhoneButton";
 
 
 export function Footer() {
@@ -19,10 +20,7 @@ export function Footer() {
                         <SocialList />
                     </ul>
                     {/* Номер телефона */}
-                    <button className={styles.phone} aria-label="Позвонить на по номеру телефона +7 495 257 55 65">
-                        <Image src='/Layout/Footer/Phone.svg' alt="Иконка телефона" aria-hidden='true' width={24} height={24} />
-                        <span className={styles.phone__text}>+7 495 257 55 65</span>
-                    </button>
+                    <PhoneButton variant="footer" iconSrc="/Layout/Footer/Phone.svg" />
                 </nav>
             </div>
             <span className={styles.text_tablet}>Copyright 2019 (c) All rights reserved.</span>

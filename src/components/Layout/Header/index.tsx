@@ -3,10 +3,11 @@ import styles from "./header.module.css";
 import { SocialList } from "../SocialList";
 import Link from "next/link";
 import { BurgerMenu } from "../BurgerMenu";
+import { PhoneButton } from "@/shared/ui/PhoneButton";
 
 
 // TODO вынесте кнопку из бургер меню и сделать useState внутри хедера, а состояние прокидывать через пропс
-// TODO вынести блок с телефоном  и блок с написать нам ЗАРЕФАКТОРИТЬ 
+// TODO блок с написать нам ЗАРЕФАКТОРИТЬ 
 // TODO Сделать ховер + эктив для кнопки написать нам 
 export function Header() {
     const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
@@ -36,10 +37,7 @@ export function Header() {
                     <SocialList />
                 </ul>
 
-                <button className={styles.phone} aria-label="Позвонить на по номеру телефона +7 495 257 55 65">
-                    <Image src='/Layout/Header/Phone.svg' alt="Иконка телефона" aria-hidden='true' width={24} height={24} />
-                    <span className={styles.phone__text}>+7 495 257 55 65</span>
-                </button>
+                <PhoneButton />
 
                 <button className={styles.mail} aria-label="Отправить сообщение нам на почту">
                     <span className={styles.mail__item_desktop}>НАПИСАТЬ НАМ</span>

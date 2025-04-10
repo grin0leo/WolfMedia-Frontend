@@ -1,0 +1,81 @@
+.phone {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.phone__text {
+    text-wrap: nowrap;
+    position: relative;
+}
+
+/* Варианты */
+
+.header .phone__text {
+    font-size: 16px;
+    color: white;
+
+    @media (max-width:850px) {
+        display: none;
+    }
+}
+
+.header {
+    margin-left: 10px;
+}
+
+.header:hover .phone__text::after {
+    width: 100%;
+    opacity: 1;
+}
+
+.header:hover img {
+    animation: shake 0.5s ease;
+}
+
+.header .phone__text::after,
+.burger .phone__text::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.footer .phone__text {
+    font-size: 18px;
+    color: var(--color2);
+}
+
+.burger .phone__text {
+    font-size: 14px;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
