@@ -10,7 +10,9 @@
     background: transparent;
     z-index: 1002;
 
-    @media (max-width:535px) {}
+    @media (min-width:535px) {
+        display: none;
+    }
 }
 
 .line,
@@ -23,6 +25,7 @@
     background-color: var(--color2);
     border-radius: 2px;
     transition: all 0.4s ease;
+    /* all убрать */
 }
 
 .line {

@@ -1,0 +1,26 @@
+.line {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+
+    padding-top: 5px;
+    padding-bottom: 25px;
+
+    @media (max-width:600px) {
+        margin-bottom: 30px;
+
+    }
+
+}
+
+.line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 85px;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+}

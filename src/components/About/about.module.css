@@ -1,0 +1,35 @@
+.label {
+    font-size: clamp(26px, 2.73vw + 17.27px, 50px);
+    margin-bottom: 50px;
+
+    @media (max-width:900px) {
+        margin-bottom: 66px;
+    }
+
+    @media (max-width:600px) {
+        margin-bottom: 30px;
+    }
+}
+
+.description {
+    margin-bottom: 35px;
+}
+
+.desktopButton {
+    @media (max-width:600px) {
+        display: none;
+    }
+
+}
+
+.mobileButton {
+    display: none;
+
+    @media (max-width:600px) {
+        display: block;
+    }
+
+    @media (max-width:425px) {
+        width: 100%;
+    }
+}

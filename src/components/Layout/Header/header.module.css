@@ -6,6 +6,9 @@
     align-items: center;
     justify-content: space-between;
 
+    z-index: 1000;
+    top: 0;
+
 
     padding: 20px 30px;
     border-bottom: 2px solid rgba(146, 115, 152, 0.2);
@@ -80,7 +83,7 @@
     .nav__item {
         text-wrap: nowrap;
         color: var(--color2);
-        transition: ease-in-out 300ms;
+
         text-decoration: none;
 
         &:hover {

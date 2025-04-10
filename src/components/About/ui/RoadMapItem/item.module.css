@@ -1,0 +1,17 @@
+.container {
+    position: relative;
+    display: inline-flex;
+    width: auto;
+
+
+    gap: 16px;
+    /* max-width: 510px;
+    min-width: 350px; */
+
+
+
+}
+
+.point {
+    margin-top: 11px;
+}

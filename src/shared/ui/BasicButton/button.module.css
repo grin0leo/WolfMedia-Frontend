@@ -1,0 +1,22 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+
+    transition: ease-in-out 300ms;
+}
+
+.orange {
+    color: white;
+    background-color: var(--accent-color);
+
+    &:hover {
+        background-color: var(--accent-colo2);
+    }
+
+    &:focus,
+    &:active {
+        background-color: var(--accent-colo3);
+    }
+}

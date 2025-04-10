@@ -1,0 +1,30 @@
+/* чтобы привязать к трем элементам лучше  */
+.element {
+    position: relative;
+    display: inline-block;
+    /* left: 0; */
+}
+
+.year {
+    display: inline-block;
+    padding: 6px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: white;
+    color: var(--background);
+
+    position: relative;
+    z-index: 1;
+}
+
+.triangle {
+    position: absolute;
+    top: 16px;
+    right: -3px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 14px;
+    height: 14px;
+    background-color: white;
+
+    z-index: 0;
+}
