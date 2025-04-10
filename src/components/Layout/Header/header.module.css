@@ -11,26 +11,38 @@
     border-bottom: 2px solid rgba(146, 115, 152, 0.2);
 
 
-    /* либо скролл анмацию при которой у хедера меняется bg на темный  */
-    background-image: url(/Desktop.png);
-    background-repeat: no-repeat;
-    background-position: start;
-    background-size: cover;
-
     @media (max-width: 900px) {
         padding: 15px 20px;
     }
 
-}
-
-/* Бургер меню */
-.burgerMenu {
-    display: none;
-
-    @media (max-width: 535px) {
-        display: block;
+    @media (max-width:535px) {
+        align-items: center;
     }
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background-image: url('/Desktop.png');
+        background-size: cover;
+        background-position: start;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 1;
+    }
+
+    &.active {
+        transition: background-color 300ms ease-in-out;
+        background-color: var(--background);
+        background-image: none;
+    }
+
+    &.active::before {
+        opacity: 0;
+    }
+
 }
+
 
 /* Навигация */
 .nav {

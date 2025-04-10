@@ -1,21 +1,31 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./header.module.css";
 import { SocialList } from "../SocialList";
 import Link from "next/link";
 import { BurgerMenu } from "../BurgerMenu";
 import { PhoneButton } from "@/shared/ui/PhoneButton";
+import { useState } from "react";
+import clsx from "clsx";
+import { BurgerButton } from "../BurgerMenu/ui/BurgerButton";
 
 
-// TODO вынесте кнопку из бургер меню и сделать useState внутри хедера, а состояние прокидывать через пропс
 // TODO блок с написать нам ЗАРЕФАКТОРИТЬ 
 // TODO Сделать ховер + эктив для кнопки написать нам 
+// TODO добавить свечение при правильном роуте ! 
 export function Header() {
     const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
 
+    const [isBurger, setIsBurger] = useState<boolean>(false)
+
     return (
 
-        <header className={styles.header} >
-            <BurgerMenu />
+        <header className={`${styles.header} ${isBurger ? styles.active : ''}`} >
+
+
+            <BurgerButton onClick={() => setIsBurger(!isBurger)} isActive={isBurger} />
+            <BurgerMenu isActive={isBurger} />
 
             <div className={styles.nav}>
                 <Image className={styles.nav__logo} src='/Layout/Header/Logo.svg' alt="Логотип" width={286} height={70} />
