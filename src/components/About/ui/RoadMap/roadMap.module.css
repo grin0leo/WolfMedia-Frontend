@@ -2,17 +2,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 20px;
 
 
     padding-top: 5px;
     padding-bottom: 25px;
 
-    @media (max-width:600px) {
+    @media (max-width:870px) {
         margin-bottom: 30px;
-
     }
 
+    @media (max-width:425px) {
+        gap: 15px;
+    }
 }
 
 .line::before {
@@ -22,5 +24,6 @@
     bottom: 0;
     left: 85px;
     width: 2px;
+    max-height: 100%;
     background-color: rgba(255, 255, 255, 0.3);
 }

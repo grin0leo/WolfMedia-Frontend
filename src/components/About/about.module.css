@@ -11,13 +11,47 @@
     }
 }
 
-.description {
-    margin-bottom: 35px;
+.content {
+    display: flex;
+    gap: 10%;
+
 }
 
-.desktopButton {
-    @media (max-width:600px) {
+.item {
+    max-width: 40%;
+
+    @media (max-width:870px) {
+        max-width: none;
+    }
+
+}
+
+.description {
+    margin-bottom: 35px;
+
+}
+
+.roadMap {
+    @media (max-width:870px) {
         display: none;
+    }
+}
+
+.roadMapMobile {
+    display: none;
+
+    @media (max-width:870px) {
+        display: block;
+        margin-bottom: 15px;
+    }
+}
+
+
+
+.desktopButton {
+
+    @media (max-width:425px) {
+        width: 100%;
     }
 
 }
@@ -29,7 +63,5 @@
         display: block;
     }
 
-    @media (max-width:425px) {
-        width: 100%;
-    }
+
 }

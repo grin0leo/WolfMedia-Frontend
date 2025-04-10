@@ -36,14 +36,14 @@ export function RoadMap({ className }: { className?: string }) {
 
     return (
 
-        <div>
-            <ul className={clsx(styles.line, className)}>
-                {roadMapItems.map((el, index) => (
-                    <RoadMapItem year={el.year} text={el.text} key={index} />
-                ))}
 
-            </ul>
-        </div>
+        <ul className={clsx(className, styles.line,)}>
+            {roadMapItems.map((el, index) => (
+                <RoadMapItem year={el.year} text={el.text} key={index} />
+            ))}
+
+        </ul>
+
 
     )
 }

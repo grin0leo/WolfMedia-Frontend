@@ -7,13 +7,13 @@ import Link from "next/link";
 import { BurgerMenu } from "../BurgerMenu";
 import { PhoneButton } from "@/shared/ui/PhoneButton";
 import { useState } from "react";
-import clsx from "clsx";
 import { BurgerButton } from "../BurgerMenu/ui/BurgerButton";
 
 
 // TODO блок с написать нам ЗАРЕФАКТОРИТЬ 
 // TODO Сделать ховер + эктив для кнопки написать нам 
 // TODO добавить свечение при правильном роуте ! 
+// TODO пофиксить баги адаптивной верскии и анимацию изменения bg 
 export function Header() {
     const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
 
