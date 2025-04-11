@@ -1,0 +1,28 @@
+.section {
+    width: 100%;
+}
+
+.label {
+    margin-bottom: 50px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+
+    @media (max-width: 580px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+    }
+}
+
+.description {
+    font-weight: 700;
+    font-size: clamp(14px, 4vw, 22px);
+    color: var(--color2);
+
+    display: block;
+    text-align: center;
+}
