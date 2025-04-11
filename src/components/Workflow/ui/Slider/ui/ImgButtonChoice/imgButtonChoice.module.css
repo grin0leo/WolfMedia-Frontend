@@ -1,0 +1,23 @@
+.button {
+    display: flex;
+    width: 100%;
+    height: auto;
+
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    outline: 0 solid transparent;
+    outline-style: solid;
+    transition: outline-color 300ms ease, outline-width 300ms ease;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline-color: var(--accent-color);
+        outline-width: 2px;
+    }
+}

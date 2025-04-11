@@ -1,0 +1,17 @@
+.item {
+    font-size: 18px;
+    font-weight: 700;
+    border: 2px solid var(--color2);
+    padding-inline: 5%;
+    padding-block: 2.5%;
+    text-align: center;
+
+    @media (max-width:900px) {
+        font-size: 16px;
+    }
+
+    @media (max-width:600px) {
+        font-size: 14px;
+
+    }
+}
