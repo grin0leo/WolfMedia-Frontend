@@ -2,10 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 30px;
-
-
 }
 
 .buttonList {
@@ -14,8 +11,6 @@
     width: 100%;
     justify-content: space-between;
 }
-
-.img {}
 
 .mainImg {
     width: 100%;

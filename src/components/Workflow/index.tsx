@@ -16,8 +16,15 @@ export function WorkflowSection() {
             </h2>
             <article className={styles.content}>
                 <ul className={styles.list}>
-                    {infoListWorkflow.map((text, index) => (
-                        <InfoElemnt key={index} text={text} />
+                    {infoListWorkflow.map((element, index) => (
+                        <InfoElemnt
+                            key={index}
+                            textBlock1={element.textBlock1}
+                            textBlock2={element.textBlock2}
+                            accentStart={element.accentStart}
+                            accentMiddle={element.accentMiddle}
+                            accentEnd={element.accentEnd}
+                        />
                     ))}
                 </ul>
                 <Slider />
