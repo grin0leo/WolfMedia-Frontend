@@ -1,0 +1,65 @@
+.container {
+    background-color: var(--color5);
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* самое просто решение, тк наиболее эфективное*/
+    @media (max-width:500px) {
+        flex-direction: row;
+        background-color: var(--color4);
+    }
+
+}
+
+.imgBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-block: 10%;
+
+    @media (max-width:500px) {
+        background-color: var(--color5);
+    }
+
+}
+
+.img {
+
+    @media (max-width:600px) {
+        width: 75px;
+    }
+
+    @media (max-width:500px) {
+        height: 100%;
+    }
+}
+
+.textBlock {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+
+    padding-inline: 2%;
+    padding-block: 5%;
+
+    background-color: var(--color4);
+    font-weight: 700;
+
+
+
+    .text {
+        font-size: clamp(14px, 1.55vw + 7.4px, 22px);
+        width: 100%;
+    }
+
+    .accent {
+        color: var(--accent-color);
+    }
+}

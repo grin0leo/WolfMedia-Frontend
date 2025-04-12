@@ -12,13 +12,13 @@
 html,
 body {
   max-width: 100%;
+  /* height: 100%; */
 
   background-color: rgba(47, 22, 52, 1);
   background-image: url(/Desktop.png);
   background-repeat: no-repeat;
-  background-position: start;
-  background-size: cover;
-
+  background-position: top center;
+  background-size: auto;
   font-family: var(--font-CeraPro);
   font-weight: 400;
   color: white;
