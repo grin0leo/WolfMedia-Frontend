@@ -1,0 +1,33 @@
+.container {}
+
+.label {
+    margin-bottom: 40px;
+
+    @media (max-width:425px) {
+        margin-bottom: 30px;
+    }
+}
+
+.list {
+
+    display: flex;
+    gap: 30px;
+    height: 100%;
+    align-items: stretch;
+
+
+    @media (max-width: 850px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    @media (max-width:500px) {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        height: 100%;
+        align-items: stretch;
+
+    }
+}

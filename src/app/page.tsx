@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/About";
 import { CommunitiesSection } from "@/components/Communities";
 import { WorkflowSection } from "@/components/Workflow";
 import { AudienceSection } from "@/components/Audience";
+import { AutomationSection } from "@/components/Automation";
 
 export default function Home() {
   return (
@@ -17,6 +18,8 @@ export default function Home() {
       <WorkflowSection />
 
       <AudienceSection />
+
+      <AutomationSection />
     </main>
   );
 }

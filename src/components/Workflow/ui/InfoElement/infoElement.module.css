@@ -5,6 +5,10 @@
     padding-inline: 5%;
     padding-block: 2.5%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     @media (max-width:900px) {
         font-size: 16px;
