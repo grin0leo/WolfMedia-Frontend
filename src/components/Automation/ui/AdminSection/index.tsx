@@ -36,10 +36,10 @@ export function AdminSection() {
                 </ul>
 
                 {/* зачем прокидывать классы, если значение display можно задать только в начале  */}
-                <div className={styles.btnDesktop}><BasicButton color="orange" content="ПОДРОБНЕЕ" /></div>
+                <div className={styles.btnDesktopContainer}><BasicButton color="orange" content="ПОДРОБНЕЕ" /></div>
             </div>
             <Image className={styles.img} src={'/Automation/video.jpg'} width={770} height={440} alt="Видео плеер" />
-            <div className={styles.btnMobile}><BasicButton color="orange" content="ПОДРОБНЕЕ" /></div>
+            <div className={styles.btnMobileContainer}><BasicButton className={styles.btnMobile} color="orange" content="ПОДРОБНЕЕ" /></div>
 
         </section>
     )
