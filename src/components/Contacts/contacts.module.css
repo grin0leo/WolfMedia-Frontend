@@ -1,0 +1,98 @@
+.label {
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 30px;
+}
+
+
+.mailList {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+
+    @media (max-width: 1200px) {
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+
+    }
+
+    @media (max-width: 600px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 40px;
+    }
+
+    @media (max-width:580px) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+    }
+}
+
+.mailItem {
+
+    @media (max-width:1200px) {
+        max-width: 30%;
+    }
+
+    @media (max-width:600px) {
+        max-width: 100%;
+    }
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+
+    @media (max-width:1200px) {
+        flex-direction: column-reverse;
+    }
+}
+
+.img {
+
+    @media (max-width:900px) {
+        width: 260px;
+        height: 260px;
+    }
+
+    @media (max-width:580px) {
+        width: 40%;
+        height: 40%;
+    }
+}
+
+.team {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width:580px) {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}
+
+.person {
+    display: block;
+
+    @media (max-width:580px) {
+        display: flex;
+        align-items: center;
+
+
+
+        width: 100%;
+        gap: 15px;
+    }
+
+}
