@@ -13,6 +13,17 @@
 }
 
 /* Варианты */
+.header {
+    margin-left: 10px;
+
+    @media (max-width:600px) {
+        display: none;
+    }
+
+    @media (max-width:535px) {
+        display: flex;
+    }
+}
 
 .header .phone__text {
     font-size: 16px;
@@ -23,9 +34,6 @@
     }
 }
 
-.header {
-    margin-left: 10px;
-}
 
 .header:hover .phone__text::after {
     width: 100%;

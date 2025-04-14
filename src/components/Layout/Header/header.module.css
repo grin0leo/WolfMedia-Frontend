@@ -93,7 +93,7 @@
         height: 40px;
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 730px) {
         display: none;
     }
 
@@ -107,7 +107,7 @@
 .nav__logoMobile {
     display: none;
 
-    @media (max-width: 650px) {
+    @media (max-width: 730px) {
         display: block;
     }
 

@@ -21,7 +21,7 @@ export function ContactsSection() {
 
     // TODO Переиспользовать компонент Person  
     return (
-        <section>
+        <section className={styles.section}>
             <h2 className={styles.label}>Есть вопрос или предложение?</h2>
             <h3 className={styles.description}>Напиши нам!</h3>
 

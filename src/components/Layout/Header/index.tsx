@@ -13,7 +13,6 @@ import { BurgerButton } from "../BurgerMenu/ui/BurgerButton";
 // TODO блок с написать нам ЗАРЕФАКТОРИТЬ 
 // TODO Сделать ховер + эктив для кнопки написать нам 
 // TODO добавить свечение при правильном роуте ! 
-// TODO пофиксить баги адаптивной верскии и анимацию изменения bg 
 export function Header() {
     const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
 
@@ -34,7 +33,7 @@ export function Header() {
                 <nav className={styles.nav__list}>
                     {pages.map((btn, index) => (
                         <Link href={btn[1]} key={btn[0]} className={styles.nav__item}>{btn[0]}</Link>
-                        // СДЕЛАТЬ ПОДЧЕРКИВАНИЕ ЧЕРЕЗ SPAN + REDUX
+                        // СДЕЛАТЬ ПОДЧЕРКИВАНИЕ ЧЕРЕЗ DIV + REDUX
                     ))}
                 </nav>
             </div>
