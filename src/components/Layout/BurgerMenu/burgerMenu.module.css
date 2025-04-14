@@ -10,7 +10,7 @@
     background-color: var(--color5);
 
     position: fixed;
-    top: 67px;
+    top: 72px;
     left: 0;
     height: calc(100vh - 67px);
     padding: 30px 15px;
@@ -19,13 +19,15 @@
     transition: transform 0.3s ease;
     transform: translateX(-100%);
 
-    @media (min-width: 535px) {
+    @media (min-width: 550px) {
         display: none;
     }
 }
 
 .aside.active {
     transform: translateX(0);
+    box-shadow: 8px 0 10px -5px rgba(0, 0, 0, 0.55);
+
 }
 
 .nav__list {

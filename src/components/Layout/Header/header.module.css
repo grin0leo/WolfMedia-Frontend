@@ -3,7 +3,7 @@
     width: 100%;
 
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
 
     z-index: 1000;
@@ -50,7 +50,7 @@
         padding: 15px 20px;
     }
 
-    @media (max-width:535px) {
+    @media (max-width:550px) {
         align-items: center;
     }
 
@@ -69,7 +69,7 @@
 /* Навигация */
 .nav {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 60px;
 
     @media (max-width: 950px) {
@@ -88,18 +88,24 @@
 
 .nav__list {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 50px;
 
-    @media (max-width: 950px) {
+    @media (max-width: 970px) {
         gap: 29px;
     }
 
-    @media (max-width: 535px) {
+    @media (max-width: 550px) {
         display: none;
     }
 
     .nav__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        height: 100%;
+
         text-wrap: nowrap;
         color: var(--color2);
 
@@ -111,10 +117,50 @@
     }
 }
 
-.nav__logo {
+.activeLink {
 
-    @media (max-width: 1060px) {
-        width: 165px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: var(--accent-color);
+
+        top: 100%;
+        margin-top: 20px;
+
+        @media (max-width:900px) {
+            margin-top: 15px;
+
+        }
+
+
+        left: 0;
+    }
+}
+
+.logo {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+
+
+    &:hover .logoCircle {
+        transform: rotateY(360deg) scale(1.1);
+    }
+
+}
+
+.logoName {
+    transition: transform 0.3s ease;
+
+    @media (max-width: 1190px) {
+        width: 115px;
         height: 40px;
     }
 
@@ -122,26 +168,22 @@
         display: none;
     }
 
-    @media (max-width: 535px) {
+    @media (max-width: 550px) {
         display: block;
         width: 145px;
         height: 35px;
     }
 }
 
-.nav__logoMobile {
-    display: none;
+.logoCircle {
 
-    @media (max-width: 730px) {
-        display: block;
-    }
+    transition: transform 0.8s ease;
+    width: 70px;
+    height: 70px;
 
-    @media (max-width: 425px) {
-        display: none;
-    }
-
-    @media (max-width: 535px) {
-        display: none;
+    @media (max-width: 1190px) {
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -185,12 +227,16 @@
         scale: 1.05;
     }
 
-    @media (max-width:535px) {
+    @media (max-width:550px) {
         display: none;
     }
 
     @media (max-width: 1200px) {
         padding: 11px 16px;
+    }
+
+    @media (max-width: 600px) {
+        margin-left: 5px;
     }
 
     .mail__item_desktop {
@@ -199,7 +245,7 @@
         text-wrap: nowrap;
 
 
-        @media (max-width:1200px) {
+        @media (max-width:1300px) {
             display: none;
         }
 
@@ -208,7 +254,7 @@
     .mail__item_tablet {
         display: none;
 
-        @media (max-width:1200px) {
+        @media (max-width:1300px) {
             display: block;
         }
     }
@@ -229,7 +275,7 @@
         display: none;
     }
 
-    @media (max-width:535px) {
+    @media (max-width:550px) {
         display: block;
     }
 

@@ -9,14 +9,18 @@ import { PhoneButton } from "@/shared/ui/PhoneButton";
 import { useState } from "react";
 import { BurgerButton } from "../BurgerMenu/ui/BurgerButton";
 
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
-// TODO блок с написать нам ЗАРЕФАКТОРИТЬ 
+
 // TODO Сделать ховер + эктив для кнопки написать нам 
 // TODO добавить свечение при правильном роуте ! 
 export function Header() {
-    const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
+    const pages = [['О НАС', ''], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
 
     const [isBurger, setIsBurger] = useState<boolean>(false)
+    const pathname = usePathname()
+
 
     return (
 
@@ -27,13 +31,18 @@ export function Header() {
             <BurgerMenu isActive={isBurger} />
 
             <div className={styles.nav}>
-                <Image className={styles.nav__logo} src='/Layout/Header/Logo.svg' alt="Логотип" width={286} height={70} />
-                <Image className={styles.nav__logoMobile} src='/Layout/Header/LogoMobile.svg' alt="Логотип" width={40} height={40} />
+                <div className={styles.logo}>
+                    <Image className={styles.logoCircle} src='/Layout/Header/LogoMobile.svg' alt="Логотип" width={40} height={40} />
+                    <Image className={styles.logoName} src='/Layout/Header/LogoName.svg' alt="Логотип" width={286} height={70} />
+                </div>
 
                 <nav className={styles.nav__list}>
-                    {pages.map((btn, index) => (
-                        <Link href={btn[1]} key={btn[0]} className={styles.nav__item}>{btn[0]}</Link>
-                        // СДЕЛАТЬ ПОДЧЕРКИВАНИЕ ЧЕРЕЗ DIV + REDUX
+                    {pages.map((el, index) => (
+                        <Link href={el[1]} key={el[0]} className={clsx(styles.nav__item, {
+                            [styles.activeLink]: pathname === el[1] || (el[1] === '' && pathname === '/')
+                        })}>
+                            {el[0]}
+                        </Link>
                     ))}
                 </nav>
             </div>

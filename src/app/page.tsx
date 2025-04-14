@@ -6,6 +6,7 @@ import { WorkflowSection } from "@/components/Section/HomePage/Workflow";
 import { AudienceSection } from "@/components/Section/HomePage/Audience";
 import { AutomationSection } from "@/components/Section/HomePage/Automation";
 import { ContactsSection } from "@/components/Section/HomePage/Contacts";
+import { BackToTopButton } from "@/components/Section/HomePage/Workflow/ui/BackToTopButton";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
       <AutomationSection />
 
       <ContactsSection />
+
+      <BackToTopButton />
     </main>
   );
 }

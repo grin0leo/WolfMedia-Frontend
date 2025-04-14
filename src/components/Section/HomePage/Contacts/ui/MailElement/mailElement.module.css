@@ -1,8 +1,7 @@
 .container {
     padding-left: 20px;
     display: block;
-
-
+    cursor: auto;
 }
 
 
@@ -24,6 +23,7 @@
     color: white;
     font-size: 16px;
     margin-bottom: 15px;
+    cursor: pointer;
 
     &::after {
         content: "";
@@ -41,7 +41,34 @@
                 rgba(255, 255, 255, 0.4) 5px,
                 transparent 5px,
                 transparent 10px);
+
+        transition: opacity 0.3s ease;
     }
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background-color: var(--accent-color);
+
+        transition: width 0.4s ease;
+        pointer-events: none;
+    }
+
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+
+        &::after {
+            opacity: 0;
+        }
+    }
+
+
 
     @media (max-width:425px) {
         font-size: 13px;

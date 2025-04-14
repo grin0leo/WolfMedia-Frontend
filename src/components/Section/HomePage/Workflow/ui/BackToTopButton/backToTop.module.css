@@ -1,0 +1,46 @@
+.button {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1001;
+    opacity: 0;
+    transform: translateY(100%);
+
+    transition:
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out,
+        background 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+
+
+    pointer-events: none;
+}
+
+.button.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.button:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .button {
+        right: 15px;
+        bottom: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}

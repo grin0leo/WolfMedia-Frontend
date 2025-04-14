@@ -2,11 +2,10 @@
 import styles from "./burgerMenu.module.css";
 import Link from "next/link";
 import { PhoneButton } from "@/shared/ui/PhoneButton";
-import { useState } from "react";
 
 export function BurgerMenu({ isActive }: { isActive: boolean }) {
 
-    const pages = [['О НАС', '/about'], ['ПОРТФОЛИО', 'projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
+    const pages = [['О НАС', '/'], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
 
 
     return (

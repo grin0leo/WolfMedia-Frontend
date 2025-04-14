@@ -3,18 +3,13 @@
     width: 100%;
     height: auto;
 
-}
 
-.img {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+    border: 2px solid transparent;
 
-    border: 0 solid transparent;
-
-    transition: border 300ms ease,
-        width 300ms ease, height 300ms ease;
-    ;
+    transition:
+        border-color 300ms ease,
+        width 300ms ease,
+        height 300ms ease;
 
     &:hover,
     &:focus,
@@ -22,5 +17,16 @@
         width: calc(100% - 4px);
         height: calc(100% - 4px);
         border: 2px solid var(--accent-color);
+        transition: border 300ms ease,
+            width 300ms ease, height 300ms ease;
+        ;
     }
+
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
 }

@@ -10,7 +10,7 @@
     background: transparent;
     z-index: 1002;
 
-    @media (min-width:535px) {
+    @media (min-width:550px) {
         display: none;
     }
 }
