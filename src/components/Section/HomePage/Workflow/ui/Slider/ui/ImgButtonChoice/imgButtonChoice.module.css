@@ -10,14 +10,17 @@
     height: 100%;
     box-sizing: border-box;
 
-    outline: 0 solid transparent;
-    outline-style: solid;
-    transition: outline-color 300ms ease, outline-width 300ms ease;
+    border: 0 solid transparent;
+
+    transition: border 300ms ease,
+        width 300ms ease, height 300ms ease;
+    ;
 
     &:hover,
     &:focus,
     &:active {
-        outline-color: var(--accent-color);
-        outline-width: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        border: 2px solid var(--accent-color);
     }
 }

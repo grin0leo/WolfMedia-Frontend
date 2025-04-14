@@ -5,7 +5,8 @@ type Button = {
     color?: 'white' | 'orange';
     size?: 'small' | 'bit';
     content: string;
-    className?: string
+    className?: string,
+    onClick?: () => void
 }
 
 export function BasicButton(
@@ -13,11 +14,12 @@ export function BasicButton(
         color = 'orange',
         size = 'small',
         content,
-        className
+        className,
+        onClick
     }: Button) {
 
     return (
-        <button className={clsx(styles.button, styles[color], styles[size], className)}>
+        <button onClick={onClick} className={clsx(styles.button, styles[color], styles[size], className)}>
             {content}
         </button>
     )
