@@ -1,6 +1,6 @@
 import styles from './admin.module.css';
 import Image from "next/image";
-import { ServiceItem } from "./ui/ServiceItem";
+import { ServiceItem } from "./ServiceItem";
 import { BasicButton } from "@/shared/ui/BasicButton";
 
 export function AdminSection() {

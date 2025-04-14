@@ -3,18 +3,25 @@ import styles from "./burgerMenu.module.css";
 import Link from "next/link";
 import { PhoneButton } from "@/shared/ui/PhoneButton";
 
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+
 export function BurgerMenu({ isActive }: { isActive: boolean }) {
 
     const pages = [['О НАС', '/'], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
-
+    const pathname = usePathname()
 
     return (
 
         <aside className={`${styles.aside} ${isActive ? styles.active : ''}`}>
 
             <nav className={styles.nav__list}>
-                {pages.map((btn, index) => (
-                    <Link href={btn[1]} key={btn[0]} className={styles.nav__item}>{btn[0]}</Link>
+                {pages.map((el, index) => (
+                    <Link href={el[1]} key={el[0]} className={clsx(styles.nav__item, {
+                        [styles.activeLink]: pathname === el[1] || (el[1] === '' && pathname === '/')
+                    })}>
+                        {el[0]}
+                    </Link>
                 ))}
             </nav>
 

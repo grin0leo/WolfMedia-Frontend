@@ -70,8 +70,10 @@
 
 
 
-    @media (max-width:425px) {
+    @media (max-width:580px) {
         font-size: 13px;
+        margin-bottom: 0px;
+
     }
 }
 
@@ -80,7 +82,7 @@
     font-size: 14px;
     width: 100%;
 
-    @media (max-width:425px) {
+    @media (max-width:580px) {
         font-size: 11px;
     }
 }

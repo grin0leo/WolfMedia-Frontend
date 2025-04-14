@@ -41,7 +41,7 @@ export function AudienceSection() {
                 ))}
             </ul>
 
-            <BasicButton content="РЕКЛАМНОЕ СОТРУДНИЧЕСТВО " />
+            <BasicButton className={styles.button} content="РЕКЛАМНОЕ СОТРУДНИЧЕСТВО " />
         </section>
     )
 }

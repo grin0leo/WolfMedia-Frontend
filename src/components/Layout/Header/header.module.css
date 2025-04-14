@@ -117,8 +117,9 @@
     }
 }
 
-.activeLink {
-
+.activeLink.activeLink {
+    /* перебиваю стандартный стиль  */
+    color: white !important;
 
     &::before {
         content: '';
@@ -173,6 +174,11 @@
         width: 145px;
         height: 35px;
     }
+
+    @media (max-width: 425px) {
+        width: 100px;
+        height: 15px;
+    }
 }
 
 .logoCircle {
@@ -184,6 +190,11 @@
     @media (max-width: 1190px) {
         width: 40px;
         height: 40px;
+    }
+
+    @media (max-width:425px) {
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -221,10 +232,33 @@
     border: 2px solid white;
     padding: 15px 30px;
 
-    transition: ease-in-out 300ms;
+
+    transition:
+        background-color ease-in-out 300ms,
+        color ease-in-out 300ms,
+        border ease-in-out 300ms,
+        filter ease-in-out 300ms;
 
     &:hover {
-        scale: 1.05;
+        transition:
+            background-color ease-in-out 300ms,
+            color ease-in-out 300ms,
+            filter ease-in-out 300ms;
+        background-color: white;
+
+        color: var(--background);
+
+        .mail__item_tablet {
+            filter: invert(1);
+        }
+    }
+
+    &:active,
+    &:focus {
+        background-color: var(--color4);
+        border: 2px solid var(--color4);
+        transition: background-color ease-in-out 300ms, color ease-in-out 300ms, border ease-in-out 300ms;
+        color: white;
     }
 
     @media (max-width:550px) {

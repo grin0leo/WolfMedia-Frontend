@@ -14,9 +14,8 @@ import clsx from "clsx";
 
 
 // TODO Сделать ховер + эктив для кнопки написать нам 
-// TODO добавить свечение при правильном роуте ! 
 export function Header() {
-    const pages = [['О НАС', ''], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', 'service'], ['КОНТАКТЫ', '/contacts']]
+    const pages = [['О НАС', '/'], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
 
     const [isBurger, setIsBurger] = useState<boolean>(false)
     const pathname = usePathname()
@@ -37,9 +36,9 @@ export function Header() {
                 </div>
 
                 <nav className={styles.nav__list}>
-                    {pages.map((el, index) => (
+                    {pages.map((el) => (
                         <Link href={el[1]} key={el[0]} className={clsx(styles.nav__item, {
-                            [styles.activeLink]: pathname === el[1] || (el[1] === '' && pathname === '/')
+                            [styles.activeLink]: pathname === el[1]
                         })}>
                             {el[0]}
                         </Link>

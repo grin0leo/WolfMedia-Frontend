@@ -18,6 +18,12 @@
     }
 }
 
+.button {
+    @media (max-width:425px) {
+        width: 100%;
+    }
+}
+
 .label {
     margin-bottom: 50px;
 }
