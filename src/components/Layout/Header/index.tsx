@@ -12,8 +12,6 @@ import { BurgerButton } from "../BurgerMenu/ui/BurgerButton";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-
-// TODO Сделать ховер + эктив для кнопки написать нам 
 export function Header() {
     const pages = [['О НАС', '/'], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
 
