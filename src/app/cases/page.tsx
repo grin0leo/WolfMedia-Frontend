@@ -1,62 +1,26 @@
-'use client'
-
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from "react"
 import styles from './page.module.css'
 
-import type { RootState, AppDispatch } from '@/store/store'
-import { fetchCases, incrementPage } from '@/store/features/casesSlice'
-import { Case } from '@/components/Case'
+import { fetchCasesServer } from '@/shared/api/fetchCasesServer'
+import { CasesList } from '../../components/CasesList/CasesList'
+import { LoadMoreCases } from '../../components/LoadMore/LoadMore'
 
+export const revalidate = 60
 
-export default function CasesPage() {
-    const dispatch = useDispatch<AppDispatch>()
-    // TODO вынести Page в отдельную ответвенность
-    // TODO ОТПИСАТЬ ОТ СОСТОЯНИЙ И РЕАЛЕЗОВАТЬ ISR ВАЖНО  REVALIDAT
-    const { items, loading, error, page, total } = useSelector((state: RootState) => state.cases)
-
-    useEffect(() => {
-        dispatch(fetchCases(page))
-    }, [page])
-
-
-    // при клике на кнопку page + 1
-    // не вызываю здесь fetchCases тк обновление страницы это async и выполняется не сразу
-    // поэтому я использую useEffect, который при обновленни page автоматически сделает запрос
-    const handlemore = () => {
-        if (items.length < total) (
-            dispatch(incrementPage())
-        )
-    }
-
+export default async function CasesPage() {
+    const initialPage = 1
+    const { items, total } = await fetchCasesServer(initialPage)
 
     return (
         <main className={styles.page}>
 
-            <div className={styles.casesList}>
-                <h2>Кейсы</h2>
+            <h1>Кейсы</h1>
 
-                {loading && <p>Загрузка...</p>}
+            {/* <CasesList items={items} /> */}
 
-                {error && <p>{error}</p>}
 
-                {items.map((item) => (
-                    <Case
-                        key={item.id}
-                        tags={item.tags}
-                        title={item.title}
-                        imgSrc={item.poster.image.src}
-                    />
-                ))}
-
-            </div>
             {items.length < total && (
-                <button onClick={handlemore} disabled={loading}>
-                    {loading ? 'Загрузка...' : 'Показать ещё'}
-                </button>
+                <LoadMoreCases initialItems={items} initialPage={initialPage + 1} total={total} />
             )}
-
         </main>
-
     )
 }

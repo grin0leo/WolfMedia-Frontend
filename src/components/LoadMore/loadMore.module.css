@@ -1,0 +1,31 @@
+.button {
+    font-size: 18px;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 50px;
+    min-width: 300px;
+
+    background-color: white;
+    color: var(--accent-color);
+    border: none;
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+}
+
+.button:hover:not(:disabled) {
+    transform: scale(1.03);
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.button:disabled {
+    background-color: #e0e0e0;
+    color: gray;
+    transform: scale(0.95);
+
+    cursor: not-allowed;
+}

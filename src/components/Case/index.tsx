@@ -11,17 +11,20 @@ export function Case({ title, tags, imgSrc }: CaseProps) {
 
     return (
 
-        <article className={styles.textBlock}>
+        <article className={styles.container}>
 
-            {parse(`<header>${title}</header>`)}
-            {parse(`<p>${tags}</p>`)}
             <img
+                className={styles.img}
                 src={imgSrc}
-                width={400}
-                height={400}
+
                 alt=""
                 loading="lazy"
             />
+            <div className={styles.textBlock}>
+                {parse(`<header class="${styles.label}">${title}</header>`)}
+                {parse(`<p class="${styles.text}"> ${tags}</p>`)}
+            </div>
+
         </article>
 
 

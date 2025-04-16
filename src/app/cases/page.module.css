@@ -1,5 +1,5 @@
 .page {
-    padding-top: 240px;
+    padding-block: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,10 +9,6 @@
 
     gap: 146px;
 
-
-    section {
-        max-width: 1170px;
-    }
 
     @media (max-width:900px) {
         padding-inline: 10px;
