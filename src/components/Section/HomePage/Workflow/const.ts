@@ -1,33 +1,43 @@
-import { InfoElementProps } from "./ui/InfoElement"
+import { InfoElementProps } from "./ui/InfoElement";
 
 export const infoListWorkflow: InfoElementProps[] = [
     {
-        accentStart: "50 штатных специалистов",
-        textBlock1: " по SMM",
+        textParts: [
+            { text: "50 штатных специалистов", isAccent: true },
+            { text: " по SMM" },
+        ],
     },
     {
-        textBlock1: "Производят ",
-        accentMiddle: "контент",
-        textBlock2: " в соответствии с ",
-        accentEnd: "редполитикой"
+        textParts: [
+            { text: "Производят " },
+            { text: "контент", isAccent: true },
+            { text: " в соответствии с " },
+            { text: "редполитикой", isAccent: true },
+        ],
     },
     {
-
-        textBlock1: "Ежедневно выпускают ",
-        accentEnd: "2000 постов и 162 видео"
+        textParts: [
+            { text: "Ежедневно выпускают " },
+            { text: "2000 постов и 162 видео", isAccent: true },
+        ],
     },
     {
-        textBlock1: "Все материалы проходят внешнюю ",
-        accentEnd: "проверку на уникальность"
+        textParts: [
+            { text: "Все материалы проходят внешнюю " },
+            { text: "проверку на уникальность", isAccent: true },
+        ],
     },
     {
-
-        textBlock1: "Собственный софт собирает  ",
-        accentMiddle: "полную статистику ",
-        textBlock2: "по активности сообществ и качеству контента ",
+        textParts: [
+            { text: "Собственный софт собирает  " },
+            { text: "полную статистику ", isAccent: true },
+            { text: "по активности сообществ и качеству контента " },
+        ],
     },
     {
-        textBlock1: "Арт-директор следит за соблюдением ",
-        accentEnd: "стилистики группы"
-    }
+        textParts: [
+            { text: "Арт-директор следит за соблюдением " },
+            { text: "стилистики группы", isAccent: true },
+        ],
+    },
 ];

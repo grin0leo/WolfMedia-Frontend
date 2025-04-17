@@ -16,7 +16,6 @@
 
 }
 
-/* ПОДУМАТЬ НАД ЦВЕТОМ */
 .label {
     font-weight: 500;
     font-size: clamp(16px, 4vw, 22px);

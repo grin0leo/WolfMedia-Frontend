@@ -6,7 +6,7 @@ export function BurgerButton({ isActive, onClick }: { isActive: boolean; onClick
         <button
             onClick={onClick}
             className={clsx(styles.burger, isActive && styles.active)}
-            aria-label={isActive ? 'Закрыть меню' : 'Открыть меню'}
+            aria-label='Переключатель BurgerMenu'
         >
             <span className={styles.line}></span>
         </button>

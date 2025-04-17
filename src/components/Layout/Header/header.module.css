@@ -15,7 +15,6 @@
 
     transition: background-color 300ms ease-in-out;
 
-
     /* маска, которая перекрывает блюр */
     &::before {
         content: '';
@@ -44,8 +43,6 @@
     }
 
 
-
-
     @media (max-width: 900px) {
         padding: 15px 20px;
     }
@@ -65,8 +62,6 @@
 
 }
 
-
-/* Навигация */
 .nav {
     display: flex;
     align-items: stretch;
@@ -119,7 +114,7 @@
 
 .activeLink.activeLink {
     /* перебиваю стандартный стиль  */
-    color: white !important;
+    color: white;
 
     &::before {
         content: '';
@@ -200,7 +195,7 @@
 
 
 
-/* Конакты */
+
 .contacts {
     display: flex;
     align-items: center;
@@ -211,9 +206,6 @@
     }
 }
 
-
-
-/* Социальные сети */
 .social {
     display: flex;
     align-items: center;
@@ -224,14 +216,12 @@
     }
 }
 
-/*Написать нам на почту */
 .mail {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid white;
     padding: 15px 30px;
-
 
     transition:
         background-color ease-in-out 300ms,
@@ -293,10 +283,8 @@
         }
     }
 
-
 }
 
-/* Позвонить нам */
 .phone {
     display: flex;
     align-items: center;
@@ -324,7 +312,6 @@
         }
     }
 
-
     .phone__text {
         text-wrap: nowrap;
         position: relative;
@@ -348,8 +335,6 @@
     }
 
 }
-
-
 
 @keyframes shake {
     0% {

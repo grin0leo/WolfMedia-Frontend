@@ -12,7 +12,7 @@ export const useLoadMore = (initialItems: Case[], total: number, page: number) =
         try {
             const { items: newItems } = await fetchCasesServer(page)
             dispatch(setCases({
-                items: [...initialItems, ...newItems], // spret, добавляю новые элементы в список
+                items: [...initialItems, ...newItems],
                 total,
                 page: page + 1
             }))

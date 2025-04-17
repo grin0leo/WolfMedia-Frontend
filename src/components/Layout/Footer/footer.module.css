@@ -84,7 +84,6 @@
     }
 }
 
-/* Блок навигации и ссылок */
 .nav {
     display: flex;
     align-items: center;
@@ -102,14 +101,12 @@
 
 }
 
-/* Соц сети */
 .social {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-/* Номер телефона */
 .phone {
     display: flex;
     align-items: center;

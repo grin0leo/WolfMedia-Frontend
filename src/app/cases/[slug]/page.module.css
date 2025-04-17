@@ -3,29 +3,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100%;
 
     padding-inline: 20px;
     margin-block: 200px;
-    gap: 146px;
+    gap: 5vw;
 
 
     @media (max-width:900px) {
         padding-inline: 10px;
-        padding-top: 120px;
 
     }
 }
 
 .case {
-    padding-inline: 30%;
+    padding-inline: 30vw;
 
     @media (max-width:900px) {
-        padding-inline: 10%;
+        padding-inline: 10vw;
 
     }
 
     @media (max-width:425px) {
-        padding-inline: 5%;
+        padding-inline: 5vw;
 
     }
 }
@@ -33,4 +34,18 @@
 .error {
     font-size: 24px;
     color: var(--accent-color);
+}
+
+.loading {
+    font-size: 18px;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 50px;
+    min-width: 300px;
+    text-align: center;
+
+    background-color: #e0e0e0;
+    color: gray;
+
+    cursor: not-allowed;
 }

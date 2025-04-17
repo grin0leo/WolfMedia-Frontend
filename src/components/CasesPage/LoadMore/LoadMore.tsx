@@ -27,11 +27,9 @@ export function LoadMoreCases({
 
     const { items, loading, page, error } = useSelector((state: RootState) => state.cases)
 
-    // монтирование
     useEffect(() => {
         dispatch(setCases({ items: initialItems, total, page: initialPage }))
     }, [dispatch, initialItems, total, initialPage])
-
 
     const { loadMoreData } = useLoadMore(items, total, page)
 
@@ -39,7 +37,6 @@ export function LoadMoreCases({
         <>
             <CasesList items={items} />
 
-            {/* обрабатываю ошибку */}
             {error && (
                 <div className={styles.error}>
                     Произошла ошибка! Попробуйте позже!

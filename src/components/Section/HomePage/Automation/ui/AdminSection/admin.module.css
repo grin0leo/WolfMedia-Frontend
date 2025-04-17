@@ -51,8 +51,6 @@
         flex-direction: column;
         gap: 10px;
         width: 100%;
-
-
     }
 }
 
@@ -62,7 +60,6 @@
     height: auto;
 
     @media (max-width: 1200px) {
-
         width: 100%;
     }
 }

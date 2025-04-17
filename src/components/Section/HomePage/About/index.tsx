@@ -32,8 +32,6 @@ export function AboutSection() {
 
                     {/* использую div, тк этот блок не несет никакой смысловой нагрузки
                     а выполняет только роль контейнера с помощью которого я регулирую адаптив
-                    
-                    можно заменит на figure???
                     */}
                     <div className={styles.roadMapMobile}><RoadMap /></div>
 

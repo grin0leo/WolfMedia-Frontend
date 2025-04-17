@@ -7,7 +7,7 @@ type CaseProps = {
     title: string;
     tags: string;
     imgSrc: string;
-    id: string
+    id?: string
 }
 export function Case({ title, tags, imgSrc, id }: CaseProps) {
 

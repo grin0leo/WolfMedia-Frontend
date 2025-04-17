@@ -5,9 +5,12 @@ import type { Case as CaseType } from '@/store/features/casesSlice'
 
 export function CasesList({ items }: { items: CaseType[] }) {
 
-    // оптимизировать, дважды прохожусь по одному массиву
-    const leftColumn = items.filter((_, i) => i % 2 === 0)
-    const rightColumn = items.filter((_, i) => i % 2 === 1)
+    const leftColumn: CaseType[] = [];
+    const rightColumn: CaseType[] = [];
+
+    items.forEach((item, i) => {
+        (i % 2 === 0 ? leftColumn : rightColumn).push(item);
+    });
 
     return (
         <div className={styles.columns}>

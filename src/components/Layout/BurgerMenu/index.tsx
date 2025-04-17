@@ -16,7 +16,6 @@ export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIs
     const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
     const pathname = usePathname()
 
-
     useClickOutside(menuRef, setIsActive, isActive);
 
     return (

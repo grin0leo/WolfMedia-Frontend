@@ -1,24 +1,29 @@
 'use client'
 import styles from './page.module.css'
 import { useParams } from 'next/navigation'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/store/store'
 import { Case } from '@/components/CasesPage/Case'
+import { useCaseItem } from '@/shared/hooks/useCasesSlug'
+
 
 export default function CasesSlug() {
-    const params = useParams()
-    const { slug } = params
+    const { slug } = useParams() as { slug: string }
+    const { item, error, loading } = useCaseItem(slug);
 
-    const item = useSelector((state: RootState) =>
-        state.cases.items.find(item => item.id === slug)
+    if (error) {
+        return (
+            <section className={styles.page}>
+                <div className={styles.error}>Кейс не найден!</div>
+            </section>
+        )
+    }
 
-    )
-
-    if (!item) return (
-        <section className={styles.page}>
-            <div className={styles.error}>Кейс не найден</div>
-        </section>
-    )
+    if (loading || !item) {
+        return (
+            <section className={styles.page}>
+                <div className={styles.loading}>Загрузка...</div>
+            </section>
+        )
+    }
 
     return (
         <section className={styles.page}>

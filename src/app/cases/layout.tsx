@@ -1,4 +1,3 @@
-
 import "@/styles/globals.css";
 import { ReduxProvider } from '@/store/store-provider'
 

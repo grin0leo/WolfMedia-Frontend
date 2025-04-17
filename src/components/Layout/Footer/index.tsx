@@ -15,11 +15,10 @@ export function Footer() {
                 <nav className={styles.nav}>
                     <span className={styles.text_mobile}>Copyright 2019 (c) All rights reserved.</span>
 
-                    {/* Соцсети */}
                     <ul className={styles.social}>
                         <SocialList />
                     </ul>
-                    {/* Номер телефона */}
+
                     <PhoneButton variant="footer" iconSrc="/Layout/Footer/Phone.svg" />
                 </nav>
             </div>
