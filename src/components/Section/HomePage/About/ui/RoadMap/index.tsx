@@ -4,8 +4,6 @@ import clsx from 'clsx'
 
 export function RoadMap({ className }: { className?: string }) {
 
-    // TODO посмотреть как сделать strong 
-
     const roadMapItems = [
         {
             year: 2014,

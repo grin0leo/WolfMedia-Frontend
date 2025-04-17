@@ -28,10 +28,10 @@ export function Header() {
             <BurgerMenu setIsActive={() => setIsBurger(false)} isActive={isBurger} />
 
             <div className={styles.nav}>
-                <div className={styles.logo}>
+                <Link href={'/'} className={styles.logo}>
                     <Image className={styles.logoCircle} src='/Layout/Header/LogoMobile.svg' alt="Логотип" width={40} height={40} />
                     <Image className={styles.logoName} src='/Layout/Header/LogoName.svg' alt="Логотип" width={286} height={70} />
-                </div>
+                </Link>
 
                 <nav className={styles.nav__list}>
                     {pages.map((el) => (
