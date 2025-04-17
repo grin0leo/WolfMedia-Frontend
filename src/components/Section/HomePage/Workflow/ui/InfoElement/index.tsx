@@ -13,17 +13,19 @@ export function InfoElemnt({ accentStart, textBlock1, accentMiddle, textBlock2, 
 
     return (
         <li className={styles.item}>
-            <strong className={styles.accent}>
-                {accentStart}
-            </strong>
-            {textBlock1}
-            <strong className={styles.accent}>
-                {accentMiddle}
-            </strong>
-            {textBlock2}
-            <strong className={styles.accent}>
-                {accentEnd}
-            </strong>
+            <p>
+                <span className={styles.accent}>
+                    {accentStart}
+                </span>
+                {textBlock1}
+                <span className={styles.accent}>
+                    {accentMiddle}
+                </span>
+                {textBlock2}
+                <span className={styles.accent}>
+                    {accentEnd}
+                </span>
+            </p>
         </li>
     )
 }
