@@ -6,15 +6,24 @@ import { PhoneButton } from "@/shared/ui/PhoneButton";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
+import { useRef } from "react";
+import { useClickOutside } from "@/shared/hooks/useClickOutside";
+
 export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIsActive: () => void }) {
+
+    const menuRef = useRef<HTMLElement>(null);
 
     const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
     const pathname = usePathname()
 
 
+    useClickOutside(menuRef, setIsActive, isActive);
+
     return (
 
-        <aside className={`${styles.aside} ${isActive ? styles.active : ''}`}>
+        <aside
+            ref={menuRef}
+            className={`${styles.aside} ${isActive ? styles.active : ''}`}>
 
             <nav className={styles.nav__list}>
                 {pages.map((el, index) => (
