@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
 
@@ -7,21 +7,27 @@ import { Footer } from "@/components/Layout/Footer";
 import localFont from 'next/font/local';
 
 const CeraPro = localFont({
-  src: [{
-    path: '../fonts/CeraPro-Regular.woff2',
-    weight: '400',
-    style: 'normal'
-  },
-  {
-    path: '../fonts/CeraPro-Regular.woff2',
-    weight: '500',
-    style: 'normal'
-  },
-  {
-    path: '../fonts/CeraPro-Bold.woff2',
-    weight: '700',
-    style: 'bold'
-  }],
+  src: [
+    {
+      path: '../fonts/CeraPro-Thin.woff2',
+      weight: '200',
+      style: 'thin'
+    },
+    {
+      path: '../fonts/CeraPro-Regular.woff2',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../fonts/CeraPro-Regular.woff2',
+      weight: '500',
+      style: 'normal'
+    },
+    {
+      path: '../fonts/CeraPro-Bold.woff2',
+      weight: '700',
+      style: 'bold'
+    }],
   display: 'swap',
   variable: '--font-CeraPro',
 }

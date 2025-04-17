@@ -1,0 +1,23 @@
+.columns {
+    display: flex;
+    /* padding-inline: 5%; */
+    width: 80%;
+    gap: 20%;
+
+
+    @media (max-width: 768px) {
+
+        flex-direction: column;
+        gap: 100px;
+
+
+    }
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+}

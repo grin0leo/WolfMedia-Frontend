@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 export function Header() {
-    const pages = [['О НАС', '/'], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
+    const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
 
     const [isBurger, setIsBurger] = useState<boolean>(false)
     const pathname = usePathname()
@@ -25,7 +25,7 @@ export function Header() {
 
 
             <BurgerButton onClick={() => setIsBurger(!isBurger)} isActive={isBurger} />
-            <BurgerMenu isActive={isBurger} />
+            <BurgerMenu setIsActive={() => setIsBurger(false)} isActive={isBurger} />
 
             <div className={styles.nav}>
                 <div className={styles.logo}>

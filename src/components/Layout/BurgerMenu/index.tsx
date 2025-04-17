@@ -6,10 +6,11 @@ import { PhoneButton } from "@/shared/ui/PhoneButton";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-export function BurgerMenu({ isActive }: { isActive: boolean }) {
+export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIsActive: () => void }) {
 
-    const pages = [['О НАС', '/'], ['ПОРТФОЛИО', '/projects'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
+    const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
     const pathname = usePathname()
+
 
     return (
 

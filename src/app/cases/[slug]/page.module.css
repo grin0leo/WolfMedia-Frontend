@@ -1,0 +1,36 @@
+.page {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-inline: 20px;
+    margin-block: 200px;
+    gap: 146px;
+
+
+    @media (max-width:900px) {
+        padding-inline: 10px;
+        padding-top: 120px;
+
+    }
+}
+
+.case {
+    padding-inline: 30%;
+
+    @media (max-width:900px) {
+        padding-inline: 10%;
+
+    }
+
+    @media (max-width:425px) {
+        padding-inline: 5%;
+
+    }
+}
+
+.error {
+    font-size: 24px;
+    color: var(--accent-color);
+}

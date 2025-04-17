@@ -12,7 +12,7 @@ type Poster = {
     }
 }
 
-type Case = {
+export type Case = {
     id: string
     title: string
     tags: string
@@ -39,16 +39,22 @@ const casesSlice = createSlice({
     name: 'cases',
     initialState,
     reducers: {
-        setCases: (state, action: PayloadAction<CasesState>) => {
+        setCases: (state, action) => {
             state.items = action.payload.items
             state.total = action.payload.total
             state.page = action.payload.page
         },
         incrementPage: (state) => {
             state.page += 1
+        },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.loading = action.payload
+        },
+        setError: (state, action: PayloadAction<string | null>) => {
+            state.error = action.payload
         }
     }
 })
 
-export const { setCases, incrementPage } = casesSlice.actions
+export const { setCases, incrementPage, setLoading, setError } = casesSlice.actions
 export default casesSlice.reducer

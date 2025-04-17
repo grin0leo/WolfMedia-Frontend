@@ -17,7 +17,7 @@ export async function fetchCasesServer(page: number) {
                 id: item.slug,
                 title: item.title,
                 tags: item.tagsDisplayed,
-                poster: item.poster
+                poster: item.poster,
             })),
             total: res.data.total
         }
