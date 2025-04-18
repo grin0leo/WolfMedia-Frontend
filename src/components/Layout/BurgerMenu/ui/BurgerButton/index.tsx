@@ -7,6 +7,7 @@ export function BurgerButton({ isActive, onClick }: { isActive: boolean; onClick
             onClick={onClick}
             className={clsx(styles.burger, isActive && styles.active)}
             aria-label='Переключатель BurgerMenu'
+            id="burger-button"
         >
             <span className={styles.line}></span>
         </button>

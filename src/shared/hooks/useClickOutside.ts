@@ -7,7 +7,12 @@ export function useClickOutside(
 ) {
     useEffect(() => {
         const handleClick = (event: MouseEvent) => {
-            if (ref.current && !ref.current.contains(event.target as Node)) {
+            const target = event.target as HTMLElement;
+
+            const isClickOutside = ref.current && !ref.current.contains(target);
+            const isClickOnBurgerButton = target.closest('#burger-button');
+
+            if (isClickOutside && !isClickOnBurgerButton) {
                 callback();
             }
         };
@@ -18,6 +23,6 @@ export function useClickOutside(
 
         return () => {
             document.removeEventListener("mousedown", handleClick);
-        };
+        }
     }, [ref, callback, active]);
 }

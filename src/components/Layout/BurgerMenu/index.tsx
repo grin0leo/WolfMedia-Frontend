@@ -16,7 +16,6 @@ export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIs
     const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
     const pathname = usePathname()
 
-    useClickOutside(menuRef, setIsActive, isActive);
 
     const navRef = useRef<HTMLDivElement | null>(null)
     const indicatorRef = useRef<HTMLDivElement | null>(null)
@@ -35,6 +34,8 @@ export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIs
         indicator.style.top = `${linkRect.top - navRect.top}px`
         indicator.style.height = `${linkRect.height}px`
     }, [pathname])
+    useClickOutside(menuRef, setIsActive, isActive);
+
     return (
 
         <aside
