@@ -36,20 +36,7 @@ const CeraPro = localFont({
 
 export const metadata: Metadata = {
   title: "WolfMedia",
-  description: "Креативное медиаагентство полного цикла",
-  // icons: {
-  //   icon: "./favicon.ico",
-  //   shortcut: "/favicon-32x32.png",
-  //   apple: "/apple-touch-icon.png",
-  // },
-  openGraph: {
-    title: "WolfMedia",
-    description: "Креативное медиаагентство полного цикла",
-    url: "https://wolfmedia.ru",
-    siteName: "WolfMedia",
-    locale: "ru_RU",
-    type: "website",
-  }
+  description: "Креативное медиаагентство полного цикла"
 };
 
 
@@ -65,14 +52,21 @@ export default function RootLayout({
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="./apple-touch-icon.png"
+          href="/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="./favicon-32x32.png"
+          href="/favicon-32x32.png"
         />
+
+        <meta property="og:title" content="WolfMedia" />
+        <meta property="og:description" content="Креативное медиаагентство полного цикла" />
+        <meta property="og:image" content="/Desktop.png" />
+        <meta property="og:url" content="https://wolfmedia.ru" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="WolfMedia" />
       </head>
       <body>
         <Header />

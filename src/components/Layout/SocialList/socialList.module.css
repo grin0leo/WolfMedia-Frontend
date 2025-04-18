@@ -16,7 +16,7 @@
     transition: transform 0.8s ease, filter 0.3s ease;
 }
 
-.item a:hover {
+.item:hover a {
     transform: rotateY(360deg) scale(1.1);
     filter: brightness(2);
 }
