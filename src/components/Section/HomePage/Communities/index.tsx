@@ -2,9 +2,6 @@ import { communitiesInfo } from "./const"
 import { Community } from "./ui/Сommunity"
 import styles from './communities.module.css'
 
-
-
-// TODO пофиксить hoverWindow при ширине экрана 700px
 export function CommunitiesSection() {
     return (
         <section className={styles.section}>

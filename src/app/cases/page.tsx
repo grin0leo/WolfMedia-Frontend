@@ -2,6 +2,7 @@ import styles from './page.module.css'
 
 import { fetchCasesServer } from '@/shared/api/fetchCasesServer'
 import { LoadMoreCases } from '../../components/CasesPage/LoadMore/LoadMore'
+import { BackToTopButton } from '@/components/Section/HomePage/Workflow/ui/BackToTopButton'
 
 
 export const revalidate = 60
@@ -18,6 +19,7 @@ export default async function CasesPage() {
             {items.length < total && (
                 <LoadMoreCases initialItems={items} initialPage={initialPage + 1} total={total} />
             )}
+            <BackToTopButton />
         </main>
     )
 }

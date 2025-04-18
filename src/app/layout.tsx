@@ -37,11 +37,11 @@ const CeraPro = localFont({
 export const metadata: Metadata = {
   title: "WolfMedia",
   description: "Креативное медиаагентство полного цикла",
-  icons: {
-    icon: "./favicon.ico",
-    shortcut: "/favicon-32x32.png",
-    apple: "/apple-touch-icon.png",
-  },
+  // icons: {
+  //   icon: "./favicon.ico",
+  //   shortcut: "/favicon-32x32.png",
+  //   apple: "/apple-touch-icon.png",
+  // },
   openGraph: {
     title: "WolfMedia",
     description: "Креативное медиаагентство полного цикла",
@@ -55,11 +55,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="ru" className={CeraPro.variable}>
+      <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="./apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="./favicon-32x32.png"
+        />
+      </head>
       <body>
         <Header />
         {children}
