@@ -33,12 +33,10 @@ const CeraPro = localFont({
 }
 );
 
-
 export const metadata: Metadata = {
   title: "WolfMedia",
   description: "Креативное медиаагентство полного цикла"
 };
-
 
 export default function RootLayout({
   children,
