@@ -82,6 +82,7 @@
 }
 
 .nav__list {
+    position: relative;
     display: flex;
     align-items: stretch;
     gap: 50px;
@@ -115,7 +116,7 @@
 .activeLink.activeLink {
     /* перебиваю стандартный стиль  */
     color: white;
-
+    /* 
     &::before {
         content: '';
         position: absolute;
@@ -131,6 +132,23 @@
         }
 
         left: 0;
+    } */
+}
+
+.indicator {
+    position: absolute;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: all 0.4s ease;
+    border-radius: 1px;
+    pointer-events: none;
+
+
+    top: 100%;
+    margin-top: 20px;
+
+    @media (max-width:900px) {
+        margin-top: 15px;
     }
 }
 

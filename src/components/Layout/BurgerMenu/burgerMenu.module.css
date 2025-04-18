@@ -37,7 +37,7 @@
 .activeLink.activeLink {
     position: relative;
     color: white;
-
+    /* 
     &::before {
         content: '';
         position: absolute;
@@ -49,10 +49,19 @@
 
         left: -14px;
         transform: translateY(-50%);
-    }
+    } */
+}
+
+.indicator {
+    position: absolute;
+    left: -14px;
+    width: 4px;
+    background-color: var(--accent-color);
+    transition: top 0.3s ease, height 0.3s ease;
 }
 
 .nav__list {
+    position: relative;
     gap: 29px;
     display: flex;
     flex-direction: column;

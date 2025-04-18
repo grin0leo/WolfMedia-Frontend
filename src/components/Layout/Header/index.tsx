@@ -12,11 +12,39 @@ import { BurgerButton } from "../BurgerMenu/ui/BurgerButton";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
+import { useEffect, useRef } from 'react'
+
+
 export function Header() {
-    const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['УСЛУГИ', '/service'], ['КОНТАКТЫ', '/contacts']]
+    const pages = [
+        ['О НАС', '/'],
+        ['КЕЙСЫ', '/cases'],
+        ['УСЛУГИ', '/service'],
+        ['КОНТАКТЫ', '/contacts']
+    ]
 
     const [isBurger, setIsBurger] = useState<boolean>(false)
     const pathname = usePathname()
+
+    // для анимации 
+    const navRef = useRef<HTMLDivElement | null>(null)
+    const indicatorRef = useRef<HTMLDivElement | null>(null)
+
+    useEffect(() => {
+        const nav = navRef.current
+        const indicator = indicatorRef.current
+        if (!nav || !indicator) return
+
+        const activeLink = nav.querySelector(`.${styles.activeLink}`) as HTMLAnchorElement | null
+        if (!activeLink) return
+
+        const linkRect = activeLink.getBoundingClientRect()
+        const navRect = nav.getBoundingClientRect()
+
+        indicator.style.left = `${linkRect.left - navRect.left}px`
+        indicator.style.width = `${linkRect.width}px`
+    }, [pathname])
+
 
 
     return (
@@ -33,11 +61,15 @@ export function Header() {
                     <Image className={styles.logoName} src='/Layout/Header/LogoName.svg' alt="Логотип" width={286} height={70} />
                 </Link>
 
-                <nav className={styles.nav__list}>
+                <nav className={styles.nav__list} ref={navRef}>
+                    <div className={styles.indicator} ref={indicatorRef}></div>
                     {pages.map((el) => (
-                        <Link href={el[1]} key={el[0]} className={clsx(styles.nav__item, {
-                            [styles.activeLink]: pathname === el[1]
-                        })}>
+                        <Link
+                            href={el[1]}
+                            key={el[0]}
+                            className={clsx(styles.nav__item, {
+                                [styles.activeLink]: pathname === el[1]
+                            })}>
                             {el[0]}
                         </Link>
                     ))}
