@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import Cookies from 'js-cookie'
 import { Case } from './casesSlice'
 
 type FavoritesState = {
@@ -21,7 +20,11 @@ const favoritesSlice = createSlice({
             } else {
                 state.cases = state.cases.filter((item) => item.id !== action.payload.id)
             }
-            Cookies.set('favorites', JSON.stringify(state.cases), { expires: 30 })
+            try {
+                localStorage.setItem('favorites', JSON.stringify(state.cases))
+            } catch (e) {
+                console.error('Ошибка сохранения favorites в localStorage:', e)
+            }
         },
         initFavorites: (state, action: PayloadAction<Case[]>) => {
             state.cases = action.payload

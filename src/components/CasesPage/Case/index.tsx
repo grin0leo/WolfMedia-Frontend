@@ -3,9 +3,11 @@
 import parse from 'html-react-parser';
 import styles from './case.module.css'
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '@/store/features/favoriteSlice';
 import { Case as CaseType } from '@/store/features/casesSlice';
+import StarButton from '../Star/starButton';
+import { RootState } from '@/store/store';
 
 
 type CaseProps = {
@@ -21,7 +23,8 @@ export function Case({ title, tags, imgSrc, id, fullCase }: CaseProps) {
 
 
     const dispatch = useDispatch()
-
+    const items = useSelector((state: RootState) => state.fav.cases)
+    const isActive = items.some(item => item.id === fullCase.id)
     return (
         <article className={styles.container}>
             <Link className={styles.link} href={`/cases/${id}`}>
@@ -35,10 +38,9 @@ export function Case({ title, tags, imgSrc, id, fullCase }: CaseProps) {
                 {parse(`<header class="${styles.label}">${title}</header>`)}
                 {parse(`<p class="${styles.text}"> ${tags}</p>`)}
             </div>
-
-            <button onClick={() => dispatch(toggleFavorite(fullCase))}>
-                ☆
-            </button>
+            <div className={styles.star}>
+                <StarButton isActive={isActive} toggleFav={() => dispatch(toggleFavorite(fullCase))} />
+            </div>
 
         </article>
 

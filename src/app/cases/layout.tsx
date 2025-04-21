@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { ReduxProvider } from '@/store/store-provider'
+import { FavoritesProvider } from "../providers/favProvider";
 
 
 
@@ -10,7 +11,9 @@ export default function RootLayout({
 }>) {
     return (
         <ReduxProvider >
-            {children}
+            <FavoritesProvider>
+                {children}
+            </FavoritesProvider>
         </ReduxProvider >
     );
 }

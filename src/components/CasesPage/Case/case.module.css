@@ -39,12 +39,7 @@
 .star {
     z-index: 1001;
     position: absolute;
-    top: 10%;
-    left: -10%;
+    top: 0%;
+    right: 0%;
 
-
-    background-color: red;
-
-    width: 100px;
-    height: 100px;
 }

@@ -3,6 +3,7 @@
     align-items: center;
     width: 100%;
     justify-content: center;
+    margin-top: 200px;
 }
 
 
@@ -10,5 +11,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 50%;
+    width: 30%;
+    gap: 5vw;
 }
