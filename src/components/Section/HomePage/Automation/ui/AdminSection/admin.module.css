@@ -56,6 +56,7 @@
 
 .img {
     flex-shrink: 0;
+    /* подумай как можно этого избежать */
     width: 770px;
     height: auto;
 

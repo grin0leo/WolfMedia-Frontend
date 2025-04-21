@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    /* помогите(((((((( */
     width: 49%;
     gap: 30px;
 
@@ -24,6 +25,7 @@
     padding: 30px 0;
 
     @media (max-width:900px) {
+        /* просто гап 0 */
         gap: 0px;
         justify-content: space-between;
     }

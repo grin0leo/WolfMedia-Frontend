@@ -18,5 +18,6 @@ export function Community({ text, imgSrc }: CommunityProps) {
             </button>
             <HoverWindow className={styles.hoverWindow} />
 
-        </li>)
+        </li>
+    )
 }

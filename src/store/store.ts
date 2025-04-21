@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import casesReducer from './features/casesSlice'
+import favoriteReducer from './features/favoriteSlice'
 
 export const store = configureStore({
     reducer: {
-        cases: casesReducer
+        cases: casesReducer,
+        fav: favoriteReducer
     }
 })
 

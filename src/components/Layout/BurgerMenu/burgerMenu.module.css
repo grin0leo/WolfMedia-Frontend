@@ -37,19 +37,6 @@
 .activeLink.activeLink {
     position: relative;
     color: white;
-    /* 
-    &::before {
-        content: '';
-        position: absolute;
-        height: 22px;
-        width: 5px;
-        background-color: var(--accent-color);
-
-        top: 50%;
-
-        left: -14px;
-        transform: translateY(-50%);
-    } */
 }
 
 .indicator {

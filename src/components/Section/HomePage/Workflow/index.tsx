@@ -4,9 +4,7 @@ import { Slider } from './ui/Slider'
 import styles from './workflow.module.css'
 
 export function WorkflowSection() {
-
     return (
-
         <section className={styles.section}>
             <h2 className={styles.label}>
                 Как мы работаем

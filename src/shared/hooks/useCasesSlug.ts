@@ -24,6 +24,7 @@ export function useCaseItem(slug: string) {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(!itemFromStore);
 
+    // убрать не получится, тк без него отправляются бесконечные запросы, потому что itemFromStore изначально null
     useEffect(() => {
         if (!itemFromStore) {
             axios

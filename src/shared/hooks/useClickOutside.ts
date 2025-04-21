@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+
+// не может быть без useEffect, тк логика ломается 
 export function useClickOutside(
     ref: React.RefObject<HTMLElement | null>,
     callback: () => void,

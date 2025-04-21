@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
 
-    /* самое просто решение, тк наиболее эфективное*/
     @media (max-width:500px) {
         flex-direction: row;
         background-color: var(--color4);
