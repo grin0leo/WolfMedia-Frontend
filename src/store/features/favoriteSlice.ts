@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-// type FavoritesState = {
-//     slugs: string[]
-// }
+export type FavoritesState = {
+    slugs: string[]
+}
 
 const favoritesSlice = createSlice({
     name: "favorites",
@@ -21,5 +21,9 @@ const favoritesSlice = createSlice({
         }
     }
 })
+//Можно вынестиселекторы и потом просто передать их в useSelector
+export const selectFavCases = (state: { favorites: FavoritesState }) => state.favorites.slugs
+export const selectFavCasesCount = (state: { favorites: FavoritesState }) => state.favorites.slugs.length
+
 export const { toggleFavorites } = favoritesSlice.actions
 export default favoritesSlice.reducer

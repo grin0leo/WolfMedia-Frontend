@@ -19,7 +19,7 @@ export function Header() {
     const pages = [
         ['О НАС', '/'],
         ['КЕЙСЫ', '/cases'],
-        ['УСЛУГИ', '/service'],
+        ['ИЗБРАННОЕ', '/fav'],
         ['КОНТАКТЫ', '/contacts']
     ]
 
