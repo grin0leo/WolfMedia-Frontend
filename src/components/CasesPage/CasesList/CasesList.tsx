@@ -16,12 +16,12 @@ export function CasesList({ items }: { items: CaseType[] }) {
         <div className={styles.columns}>
             <div className={styles.column}>
                 {leftColumn.map((item) => (
-                    <Case key={item.id} id={item.id} title={item.title} tags={item.tags} imgSrc={item.poster.image.src} />
+                    <Case fullCase={item} key={item.id} id={item.id} title={item.title} tags={item.tags} imgSrc={item.poster.image.src} />
                 ))}
             </div>
             <div className={styles.column}>
                 {rightColumn.map((item) => (
-                    <Case key={item.id} id={item.id} title={item.title} tags={item.tags} imgSrc={item.poster.image.src} />
+                    <Case fullCase={item} key={item.id} id={item.id} title={item.title} tags={item.tags} imgSrc={item.poster.image.src} />
                 ))}
             </div>
         </div>

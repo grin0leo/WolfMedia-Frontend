@@ -13,7 +13,7 @@ export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIs
 
     const menuRef = useRef<HTMLElement>(null);
 
-    const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['ИЗБРАННОЕ', '/fav'], ['КОНТАКТЫ', '/contacts']]
+    const pages = [['О НАС', '/'], ['КЕЙСЫ', '/cases'], ['ИЗБРАННОЕ', '/cases/fav'], ['КОНТАКТЫ', '/contacts']]
     const pathname = usePathname()
 
 

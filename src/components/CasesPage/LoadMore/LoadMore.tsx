@@ -43,7 +43,7 @@ export function LoadMoreCases({
                 </div>)}
 
 
-            {page * 10 < total && (
+            {(page - 1) * 10 < total && (
                 <button onClick={loadMoreData} className={clsx(styles.button)} disabled={loading}>
                     {loading ? 'Загрузка...' : 'Показать ещё'}
                 </button>

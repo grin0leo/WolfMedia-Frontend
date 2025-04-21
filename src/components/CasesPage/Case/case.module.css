@@ -4,6 +4,8 @@
     align-items: start;
     gap: 20px;
     width: 100%;
+
+    position: relative;
 }
 
 .img {
@@ -32,4 +34,17 @@
 .link {
     text-decoration: none;
     color: white;
+}
+
+.star {
+    z-index: 1001;
+    position: absolute;
+    top: 10%;
+    left: -10%;
+
+
+    background-color: red;
+
+    width: 100px;
+    height: 100px;
 }
