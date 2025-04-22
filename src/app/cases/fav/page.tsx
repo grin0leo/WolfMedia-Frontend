@@ -15,10 +15,14 @@ export default function FavPage() {
 
     return (
         <main className={styles.container}>
+
+            <h1>
+                Избранное
+            </h1>
             <ul className={styles.column}>
                 {favCases.map((el: CaseType, index) => (
                     <li key={index}>
-                        <Case id={el.id} title={el.title} tags={el.tags} imgSrc={el.poster.image.src} fullCase={el} />
+                        <Case id={el.id} title={el.title} tags={el.tags} imgSrc={el?.poster?.image?.src} fullCase={el} />
                     </li>
                 ))}
             </ul>

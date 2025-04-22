@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type Poster = {
-    color: string
-    format: string
-    video?: string
     image: {
         src: string
         src2x?: string

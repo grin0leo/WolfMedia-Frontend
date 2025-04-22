@@ -37,7 +37,7 @@
 }
 
 .star {
-    z-index: 1001;
+    z-index: 101;
     position: absolute;
     top: 0%;
     right: 0%;

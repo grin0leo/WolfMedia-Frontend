@@ -24,6 +24,8 @@ export function Case({ title, tags, imgSrc, id, fullCase }: CaseProps) {
 
     const dispatch = useDispatch()
     const items = useSelector((state: RootState) => state.fav.cases)
+
+
     const isActive = items.some(item => item.id === fullCase.id)
     return (
         <article className={styles.container}>

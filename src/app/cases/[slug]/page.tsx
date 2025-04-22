@@ -28,7 +28,7 @@ export default function CasesSlug() {
     return (
         <section className={styles.page}>
             <div className={styles.case}>
-                <Case id={item.id} title={item.title} tags={item.tags} imgSrc={item.poster.image.src} />
+                <Case fullCase={item} id={item.id} title={item.title} tags={item.tags} imgSrc={item.poster.image.src} />
             </div>
         </section>
     )
