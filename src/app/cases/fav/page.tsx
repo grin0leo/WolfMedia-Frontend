@@ -11,13 +11,11 @@ export default function FavPage() {
 
     const favCases = useSelector((state: RootState) => state.fav.cases)
 
-
-
     return (
         <main className={styles.container}>
 
-            <h1>
-                Избранное
+            <h1 className={styles.label}>
+                Избранное: {favCases.length}
             </h1>
             <ul className={styles.column}>
                 {favCases.map((el: CaseType, index) => (
