@@ -14,6 +14,9 @@ import clsx from "clsx";
 
 import { useEffect, useRef } from 'react'
 
+import { PopUp } from '@/shared/ui/PopUp'
+
+
 
 export function Header() {
     const pages = [
@@ -25,6 +28,14 @@ export function Header() {
 
     const [isBurger, setIsBurger] = useState<boolean>(false)
     const pathname = usePathname()
+
+
+    // Pop Up
+    const dialogRef = useRef<HTMLDialogElement>(null)
+
+    const openDialog = () => {
+        dialogRef.current?.showModal()
+    }
 
     // для анимации 
     const navRef = useRef<HTMLDivElement | null>(null)
@@ -86,12 +97,14 @@ export function Header() {
 
                 <PhoneButton />
 
-                <button className={styles.mail} aria-label="Отправить сообщение нам на почту">
+                <button className={styles.mail} aria-label="Открыть форму для отправки сообщения нам на почту" onClick={openDialog}>
                     <span className={styles.mail__item_desktop}>НАПИСАТЬ НАМ</span>
                     <Image className={styles.mail__item_tablet} src='/Layout/Header/Mail.svg' width={24} height={19} alt="Иконка Почты" aria-hidden='true' />
                 </button>
             </div>
 
-        </header>
+            <PopUp onClose={() => dialogRef?.current?.close()} ref={dialogRef} />
+
+        </header >
     )
 }

@@ -1,5 +1,6 @@
 :root {
   --color2: rgba(146, 115, 152, 1);
+  --color3: rgba(106, 78, 112, 1);
   --color4: rgba(80, 54, 85, 1);
   --color5: rgba(59, 35, 65, 1);
   --accent-color: rgba(242, 92, 58, 1);
@@ -51,6 +52,17 @@ h3 {
   font-size: clamp(18px, 3vw, 22px);
 }
 
+input,
+textarea {
+  background-color: transparent;
+  border: none;
+  font-family: var(--font-CeraPro);
+
+
+  &:focus {
+    outline: none;
+  }
+}
 
 * {
   box-sizing: border-box;

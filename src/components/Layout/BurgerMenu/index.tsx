@@ -2,6 +2,7 @@
 import styles from "./burgerMenu.module.css";
 import Link from "next/link";
 import { PhoneButton } from "@/shared/ui/PhoneButton";
+import { PopUp } from '@/shared/ui/PopUp'
 
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
@@ -17,8 +18,17 @@ export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIs
     const pathname = usePathname()
 
 
+    // Pop Up
+    const dialogRef = useRef<HTMLDialogElement>(null)
+
+    const openDialog = () => {
+        dialogRef.current?.showModal()
+    }
+    // 
     const navRef = useRef<HTMLDivElement | null>(null)
     const indicatorRef = useRef<HTMLDivElement | null>(null)
+
+
 
     useEffect(() => {
         const nav = navRef.current
@@ -56,9 +66,11 @@ export function BurgerMenu({ isActive, setIsActive }: { isActive: boolean, setIs
             <div className={styles.contacts}>
                 <PhoneButton variant="burger" iconSrc="/Layout/Header/Phone.svg" />
 
-                <button className={styles.mail} aria-label="Отправить сообщение нам на почту">
-                    <span className={styles.mail__item_desktop}>НАПИСАТЬ НАМ</span>
+                <button className={styles.mail} onClick={openDialog} aria-label="Отправить сообщение нам на почту">
+                    <span className={styles.mail__item_desktop}  >НАПИСАТЬ НАМ</span>
                 </button>
             </div>
+            <PopUp onClose={() => dialogRef?.current?.close()} ref={dialogRef} />
+
         </aside>)
 }

@@ -1,0 +1,109 @@
+.dialog {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0, 0.5);
+
+    border: none;
+
+    &[open] {
+        display: flex;
+    }
+
+    &::backdrop {
+        display: none;
+    }
+}
+
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 26px;
+}
+
+.form {
+    position: relative;
+
+    width: 430px;
+    background-color: var(--color5);
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (max-width: 450px) {
+
+        width: 288px;
+        height: auto;
+    }
+}
+
+.item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color4);
+    border: 1px solid var(--color3);
+}
+
+.input {
+    padding: 1.4rem 0.8rem 0.6rem;
+    border: 1px solid var(--color3);
+    background: var(--color4);
+    color: white;
+    font-size: 16px;
+}
+
+.label {
+    position: absolute;
+    top: 1rem;
+    left: 0.8rem;
+    color: var(--color2);
+    font-size: 18px;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.input:focus+.label,
+.input:not(:placeholder-shown)+.label,
+.input:valid+.label {
+    top: 0.5rem;
+    font-size: 12px;
+
+}
+
+.textArea {
+    height: 180px;
+}
+
+.crossButton {
+    position: absolute;
+    top: 0;
+    right: -19px;
+    height: 19px;
+
+    @media (max-width: 450px) {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(100%);
+
+        img {
+
+            width: 27px;
+            height: 27px;
+        }
+    }
+}
+
+
+.policy {
+    color: var(--color2);
+    font-size: 14px;
+}

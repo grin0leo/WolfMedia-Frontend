@@ -11,6 +11,7 @@ import { BackToTopButton } from "@/components/Section/HomePage/Workflow/ui/BackT
 export default function Home() {
   return (
     <main className={styles.page}>
+
       <SloganSection />
 
       <AboutSection />
