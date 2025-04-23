@@ -5,32 +5,56 @@ import Image from 'next/image';
 import clsx from 'clsx';
 
 import { useForm, SubmitHandler } from "react-hook-form"
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+import { formatPhone } from './features/phoneMask';
+
 
 
 type PopUpProps = {
     onClose: () => void;
 }
-interface PopUpForm {
-    name: string;
-    tel: string;
-    message: string;
-}
+
+// схема Zod
+const popUpSchema = z.object({
+    name: z.string()
+        .min(2, "Имя должно содержать хотя бы 2 символа")
+        .regex(/^[A-Za-zА-Яа-яЁё\s]+$/, "Имя должно содержать только буквы"),
+    tel: z
+        .string()
+        .min(18, "Введите корректный номер телефона"),
+    message: z.string().min(5, "Сообщение слишком короткое"),
+});
+
+type PopUpForm = z.infer<typeof popUpSchema>;
+
+
 export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref) => {
 
     const dialogRef = ref as React.RefObject<HTMLDialogElement>
 
-    const { register, handleSubmit } = useForm<PopUpForm>()
+    const handleClose = () => {
+        document.body.style.overflow = '';
+        onClose();
+    };
 
+    // React-Hook-Form
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        setValue
+    } = useForm<PopUpForm>({
+        resolver: zodResolver(popUpSchema),
+    });
 
-    // блокирую скролл
-    useEffect(() => {
-        document.body.style.overflow = 'hidden';
-
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, []);
-
+    const onSubmit: SubmitHandler<PopUpForm> = (data) => {
+        console.log("Форма отправлена", data);
+        reset();
+        handleClose();
+    };
 
     //использование template здесь не нужно, тк реакт сам управляет DOM 
     // template блокирует возможно использовать showModal и close
@@ -40,13 +64,13 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
         <dialog
             onClick={(e) => {
                 if (e.target === e.currentTarget) {
-                    onClose();
+                    handleClose()
                 }
             }}
             ref={dialogRef}
             className={styles.dialog}>
 
-            <form action="" className={styles.form}>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <h2 className={styles.title}>НАПИСАТЬ НАМ</h2>
 
                 {/* ИМЯ */}
@@ -61,6 +85,7 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
 
                     />
                     <label htmlFor="name" className={styles.label}>Ваше имя</label>
+                    {errors.name && <p className={styles.error}>{errors.name.message}</p>}
                 </div>
 
                 {/* ТЕЛЕФОН */}
@@ -71,9 +96,16 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                         className={styles.input}
                         required
                         placeholder=" "
-                        {...register("tel", { required: true, })}
+                        {...register("tel", {
+                            required: true,
+                            onChange: (e) => {
+                                const formatted = formatPhone(e.target.value);
+                                setValue("tel", formatted);
+                            },
+                        })}
                     />
                     <label htmlFor="telephone" className={styles.label}>Ваш телефон</label>
+                    {errors.tel && <p className={styles.error}>{errors.tel.message}</p>}
                 </div>
 
                 {/* СООБЩЕНИЕ */}
@@ -87,13 +119,17 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                         {...register("message", { required: true, })}
                     />
                     <label className={styles.label} htmlFor="message">Ваше сообщение</label>
+                    {errors.message && <p className={styles.error}>{errors.message.message}</p>}
                 </div>
 
-                <BasicButton content='ОТПРАВИТЬ' />
+
+                {/* Добавить логику отправки */}
+
+                <BasicButton type="submit" content='ОТПРАВИТЬ' />
 
                 <p className={styles.policy}>Нажимая кнопку “Отправить” вы даёте своё согласие на обработку персональных данных</p>
 
-                <button className={styles.crossButton} onClick={onClose}>
+                <button className={styles.crossButton} onClick={handleClose}>
                     <Image src={'/PopUp/Cross.svg'} width={19} height={19} aria-label='Закрыть PopUp окно' alt='' />
                 </button >
 

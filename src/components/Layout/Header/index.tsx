@@ -35,6 +35,7 @@ export function Header() {
 
     const openDialog = () => {
         dialogRef.current?.showModal()
+        document.body.style.overflow = 'hidden';
     }
 
     // для анимации 
