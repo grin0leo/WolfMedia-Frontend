@@ -93,6 +93,7 @@
 
 .textArea {
     height: 180px;
+    resize: none;
 }
 
 .crossButton {

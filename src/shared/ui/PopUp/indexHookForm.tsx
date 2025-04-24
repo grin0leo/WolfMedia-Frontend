@@ -1,15 +1,23 @@
 import { BasicButton } from '@/shared/ui/BasicButton'
 import styles from './popUp.module.css'
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import clsx from 'clsx';
 
+import { useForm, SubmitHandler } from "react-hook-form"
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { formatPhone } from './features/phoneMask';
-import { z } from 'zod';
+
+
+
+type PopUpProps = {
+    onClose: () => void;
+}
 
 // схема Zod
-const formDataSchema = z.object({
+const popUpSchema = z.object({
     name: z.string()
         .min(2, "Имя должно содержать хотя бы 2 символа")
         .regex(/^[A-Za-zА-Яа-яЁё\s]+$/, "Имя должно содержать только буквы"),
@@ -18,24 +26,11 @@ const formDataSchema = z.object({
         .min(18, "Введите корректный номер телефона"),
     message: z
         .string().min(5, "Сообщение слишком короткое")
-        .max(120, 'Сообщение слишком длинное'),
 
 });
 
-type FormData = z.infer<typeof formDataSchema>;
+type PopUpForm = z.infer<typeof popUpSchema>;
 
-
-
-type PopUpProps = {
-    onClose: () => void;
-}
-
-
-const initialFormState: FormData = {
-    name: '',
-    tel: '',
-    message: ''
-}
 
 export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref) => {
 
@@ -46,37 +41,22 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
         onClose();
     };
 
-    const [userFormData, setUserFormData] = useState<FormData>(initialFormState)
-    const [showErrors, setShowErrors] = useState<boolean>(false)
+    // React-Hook-Form
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        setValue
+    } = useForm<PopUpForm>({
+        resolver: zodResolver(popUpSchema),
+    });
 
-
-    const formData = {
-        ...initialFormState,
-        ...userFormData
-    }
-    const validate = () => {
-        const result = formDataSchema.safeParse(userFormData);
-        return result.success ? null : result.error.format();
-    };
-
-    const reset = () => setUserFormData(initialFormState)
-
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        const errors = validate()
-        if (errors) {
-            setShowErrors(true)
-            return
-        }
-
-        console.log("Форма отправлена:", userFormData);
+    const onSubmit: SubmitHandler<PopUpForm> = (data) => {
+        console.log("Форма отправлена", data);
         reset();
         handleClose();
-
-    }
-
-    const errors = showErrors ? validate() : undefined;
+    };
 
     //использование template здесь не нужно, тк реакт сам управляет DOM 
     // template блокирует возможно использовать showModal и close
@@ -90,10 +70,9 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                 }
             }}
             ref={dialogRef}
-            className={styles.dialog}
-            onClose={handleClose} >
+            className={styles.dialog}>
 
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <h2 className={styles.title}>НАПИСАТЬ НАМ</h2>
 
                 {/* ИМЯ */}
@@ -104,11 +83,11 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                         type="text"
                         id='name'
                         placeholder=" "
-                        onChange={(e) => setUserFormData({ ...userFormData, name: e.target.value })}
+                        {...register("name", { required: true, })}
 
                     />
                     <label htmlFor="name" className={styles.label}>Ваше имя</label>
-                    {errors?.name && <p className={styles.error}>{errors.name._errors[0]}</p>}
+                    {errors.name && <p className={styles.error}>{errors.name.message}</p>}
                 </div>
 
                 {/* ТЕЛЕФОН */}
@@ -119,15 +98,16 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                         className={styles.input}
                         required
                         placeholder=" "
-                        value={userFormData.tel}
-                        onChange={(e) =>
-                            setUserFormData({
-                                ...userFormData,
-                                tel: formatPhone(e.target.value),
-                            })
-                        } />
+                        {...register("tel", {
+                            required: true,
+                            onChange: (e) => {
+                                const formatted = formatPhone(e.target.value);
+                                setValue("tel", formatted);
+                            },
+                        })}
+                    />
                     <label htmlFor="telephone" className={styles.label}>Ваш телефон</label>
-                    {errors?.tel && <p className={styles.error}>{errors.tel._errors[0]}</p>}
+                    {errors.tel && <p className={styles.error}>{errors.tel.message}</p>}
                 </div>
 
                 {/* СООБЩЕНИЕ */}
@@ -135,23 +115,20 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
 
                     <textarea
                         id='message'
-                        maxLength={200}
+                        maxLength={250}
                         className={clsx(styles.input, styles.textArea)}
                         required
                         placeholder=" "
-                        onChange={(e) => {
-                            setUserFormData({ ...userFormData, message: e.target.value })
-                        }}
-
+                        {...register("message", { required: true, })}
                     />
                     <label className={styles.label} htmlFor="message">Ваше сообщение</label>
-                    {errors?.message && <p className={styles.error}>{errors.message._errors[0]}</p>}
+                    {errors.message && <p className={styles.error}>{errors.message.message}</p>}
                 </div>
 
 
                 {/* Добавить логику отправки */}
 
-                <BasicButton disabled={showErrors && !!errors} type="submit" content='ОТПРАВИТЬ' />
+                <BasicButton type="submit" content='ОТПРАВИТЬ' />
 
                 <p className={styles.policy}>Нажимая кнопку “Отправить” вы даёте своё согласие на обработку персональных данных</p>
 
