@@ -18,18 +18,13 @@ const formDataSchema = z.object({
         .min(18, "Введите корректный номер телефона"),
     message: z
         .string().min(5, "Сообщение слишком короткое")
-        .max(120, 'Сообщение слишком длинное'),
-
 });
 
 type FormData = z.infer<typeof formDataSchema>;
 
-
-
 type PopUpProps = {
     onClose: () => void;
 }
-
 
 const initialFormState: FormData = {
     name: '',
@@ -46,14 +41,18 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
         onClose();
     };
 
+
     const [userFormData, setUserFormData] = useState<FormData>(initialFormState)
     const [showErrors, setShowErrors] = useState<boolean>(false)
+    const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(1);
+
+    const validateField = (field: keyof FormData, value: string) => {
+        const partialData = { ...userFormData, [field]: value };
+        const result = formDataSchema.safeParse(partialData);
+        return result.success || result.error.format()?.[field]?._errors[0];
+    };
 
 
-    const formData = {
-        ...initialFormState,
-        ...userFormData
-    }
     const validate = () => {
         const result = formDataSchema.safeParse(userFormData);
         return result.success ? null : result.error.format();
@@ -73,10 +72,21 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
         console.log("Форма отправлена:", userFormData);
         reset();
         handleClose();
-
+        setShowErrors(false)
+        setCurrentStep(1)
     }
 
+
     const errors = showErrors ? validate() : undefined;
+
+
+    // принимает на вход любое поле формы, проверяет, если в ошибках наше поле, если да, возвращает его ошибки
+    const getFieldError = (field: keyof FormData, errorsObj?: ReturnType<typeof validate>): string | null => {
+        if (!showErrors || !errorsObj) return null;
+        return errorsObj[field]?._errors[0] || null;
+    };
+
+
 
     //использование template здесь не нужно, тк реакт сам управляет DOM 
     // template блокирует возможно использовать showModal и close
@@ -96,6 +106,13 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h2 className={styles.title}>НАПИСАТЬ НАМ</h2>
 
+                <ul className={styles.progress}>
+                    <li className={clsx(styles.dot, currentStep >= 1 && styles.active)} />
+                    <li className={clsx(styles.dot, currentStep >= 2 && styles.active)} />
+                    <li className={clsx(styles.dot, currentStep >= 3 && styles.active)} />
+                </ul>
+
+
                 {/* ИМЯ */}
                 <div className={styles.item}>
                     <input
@@ -104,55 +121,78 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                         type="text"
                         id='name'
                         placeholder=" "
-                        onChange={(e) => setUserFormData({ ...userFormData, name: e.target.value })}
-
+                        value={userFormData.name}
+                        onChange={(e) => {
+                            const value = e.target.value;
+                            setUserFormData((prev) => ({ ...prev, name: value }));
+                            setShowErrors(true)
+                            if (!validateField('name', value)) {
+                                setShowErrors(false)
+                                setCurrentStep(2);
+                            }
+                        }}
                     />
                     <label htmlFor="name" className={styles.label}>Ваше имя</label>
-                    {errors?.name && <p className={styles.error}>{errors.name._errors[0]}</p>}
+                    {(getFieldError('name', errors)) && <p className={styles.error}>{getFieldError('name', errors)}</p>}
                 </div>
 
                 {/* ТЕЛЕФОН */}
                 <div className={styles.item}>
                     <input
                         type="tel"
-                        id='telephone'
+                        id="telephone"
                         className={styles.input}
                         required
                         placeholder=" "
                         value={userFormData.tel}
-                        onChange={(e) =>
-                            setUserFormData({
-                                ...userFormData,
-                                tel: formatPhone(e.target.value),
-                            })
-                        } />
+                        disabled={currentStep < 2}
+                        onChange={(e) => {
+                            const value = formatPhone(e.target.value);
+                            setUserFormData((prev) => ({ ...prev, tel: value }));
+                            setShowErrors(true)
+                            if (!validateField('tel', value)) {
+                                setShowErrors(false)
+                                setCurrentStep(3);
+                            }
+                        }}
+                    />
                     <label htmlFor="telephone" className={styles.label}>Ваш телефон</label>
-                    {errors?.tel && <p className={styles.error}>{errors.tel._errors[0]}</p>}
+                    {(getFieldError('tel', errors) && currentStep > 1) && <p className={styles.error}>{getFieldError('tel', errors)}</p>}
                 </div>
 
-                {/* СООБЩЕНИЕ */}
-                <div className={styles.item}>
 
+
+                {/* СООБЩЕНИЕ */}
+
+                <div className={styles.item}>
                     <textarea
                         id='message'
                         maxLength={200}
                         className={clsx(styles.input, styles.textArea)}
+                        value={userFormData.message}
                         required
+                        disabled={currentStep < 3}
                         placeholder=" "
                         onChange={(e) => {
-                            setUserFormData({ ...userFormData, message: e.target.value })
+                            const value = e.target.value;
+                            const newData = { ...userFormData, message: value };
+                            setUserFormData(newData);
+                            setShowErrors(true)
+                            if (validateField('message', value) === true) {
+                                setCurrentStep(4);
+                            }
                         }}
-
                     />
                     <label className={styles.label} htmlFor="message">Ваше сообщение</label>
-                    {errors?.message && <p className={styles.error}>{errors.message._errors[0]}</p>}
+                    {(getFieldError('message', errors) && currentStep > 2) && <p className={styles.error}>{getFieldError('message', errors)}</p>}
                 </div>
+
+
 
 
                 {/* Добавить логику отправки */}
 
-                <BasicButton disabled={showErrors && !!errors} type="submit" content='ОТПРАВИТЬ' />
-
+                <BasicButton disabled={currentStep < 4} type="submit" content='ОТПРАВИТЬ' />
                 <p className={styles.policy}>Нажимая кнопку “Отправить” вы даёте своё согласие на обработку персональных данных</p>
 
                 <button className={styles.crossButton} onClick={handleClose}>
