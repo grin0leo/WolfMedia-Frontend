@@ -1,0 +1,17 @@
+.progress {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: gray;
+    transition: background 0.3s ease-in-out;
+}
+
+.active {
+    background: var(--accent-colo2);
+}
