@@ -56,25 +56,35 @@
 }
 
 @keyframes bounce {
+    0% {
+        transform: translateY(0) scale(1, 1);
+    }
 
-    0%,
-    100% {
-        transform: translateY(0) scale(1);
+    10% {
+        transform: translateY(0) scale(1.1, 0.9);
+
     }
 
     30% {
-        transform: translateY(-20px) scale(1.1);
+        transform: translateY(-25px) scale(0.9, 1.1);
+
     }
 
     50% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1.05, 0.95);
+
     }
 
     65% {
-        transform: translateY(-8px) scale(1.05);
+        transform: translateY(-8px) scale(0.98, 1.02);
+
     }
 
     80% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1, 1);
+    }
+
+    100% {
+        transform: translateY(0) scale(1, 1);
     }
 }
