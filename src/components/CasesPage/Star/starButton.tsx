@@ -1,7 +1,6 @@
 'use client'
 
-import styles from './StarButton.module.css'
-
+import styles from './starButton.module.css'
 export default function StarButton({
     isActive,
     toggleFav,
