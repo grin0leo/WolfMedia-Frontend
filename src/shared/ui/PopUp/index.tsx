@@ -1,6 +1,7 @@
-import { forwardRef } from 'react';
+'use client'
+import { forwardRef, useState } from 'react';
 import Image from 'next/image';
-import clsx from 'clsx';
+
 
 
 import { BasicButton } from '@/shared/ui/BasicButton';
@@ -10,6 +11,8 @@ import styles from './popUp.module.css';
 import { usePopUpForm } from './features/usePopUpForm';
 import { FieldInput } from './ui/Field';
 import { formatPhone } from './features/phoneMask';
+import { SuccessPopup } from '../SuccessPopup';
+
 
 type PopUpProps = {
     onClose: () => void;
@@ -17,17 +20,18 @@ type PopUpProps = {
 
 export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref) => {
     const dialogRef = ref as React.RefObject<HTMLDialogElement>;
+    const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
     const {
         userFormData,
         setUserFormData,
         currentStep,
         setCurrentStep,
-        showErrors,
+        handleClose,
         setShowErrors,
         validateField,
         getFieldError,
-        handleSubmit,
+        handleSubmit
     } = usePopUpForm(onClose);
 
     return (
@@ -35,9 +39,9 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
             ref={dialogRef}
             className={styles.dialog}
             onClick={(e) => {
-                if (e.target === e.currentTarget) onClose();
+                if (e.target === e.currentTarget) handleClose();
             }}
-            onClose={onClose}
+            onClose={handleClose}
         >
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h2 className={styles.title}>НАПИСАТЬ НАМ</h2>
@@ -57,6 +61,7 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                     disabled={false}
                     error={getFieldError('name')}
                 />
+
 
                 <FieldInput
                     id="tel"
@@ -89,13 +94,18 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                     }}
                 />
 
+                {isSuccess && <SuccessPopup handleClose={() => {
+                    handleClose()
+                    setIsSuccess(false)
+                }} />}
 
-                <BasicButton disabled={currentStep < 4} type="submit" content="ОТПРАВИТЬ" />
+
+                <BasicButton onClick={() => setIsSuccess(true)} disabled={currentStep < 4} type="submit" content="ОТПРАВИТЬ" />
                 <p className={styles.policy}>
                     Нажимая кнопку “Отправить” вы даёте своё согласие на обработку персональных данных
                 </p>
 
-                <button className={styles.crossButton} onClick={onClose}>
+                <button className={styles.crossButton} onClick={handleClose}>
                     <Image src="/PopUp/Cross.svg" width={19} height={19} alt="Закрыть PopUp окно" />
                 </button>
             </form>

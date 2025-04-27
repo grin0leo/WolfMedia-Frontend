@@ -62,7 +62,7 @@ export const usePopUpForm = (onClose: () => void) => {
 
         console.log("Форма отправлена:", userFormData);
         reset();
-        onClose();
+        // onClose();
         setShowErrors(false);
         setCurrentStep(1);
     };
@@ -78,6 +78,7 @@ export const usePopUpForm = (onClose: () => void) => {
         getFieldError,
         handleSubmit,
         validate,
+        handleClose,
         reset
     };
 
