@@ -20,7 +20,7 @@ const placeholders = {
 const inputTypes = {
     name: 'text',
     tel: 'tel',
-    message: ''
+    message: 'text'
 };
 
 export const FieldInput = ({ value, onChange, error, id, disabled, isTextArea = false }: Props) => {

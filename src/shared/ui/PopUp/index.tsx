@@ -12,6 +12,7 @@ import { usePopUpForm } from './features/usePopUpForm';
 import { FieldInput } from './ui/Field';
 import { formatPhone } from './features/phoneMask';
 import { SuccessPopup } from '../SuccessPopup';
+import { useFieldChange } from './features/handleOnChange';
 
 
 type PopUpProps = {
@@ -24,24 +25,37 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
 
     const {
         userFormData,
-        setUserFormData,
         currentStep,
-        setCurrentStep,
         handleClose,
+        getFieldError,
+        handleSubmit,
+        setUserFormData,
         setShowErrors,
         validateField,
-        getFieldError,
-        handleSubmit
+        setCurrentStep,
     } = usePopUpForm(onClose);
+
+    const { handleFieldChange } = useFieldChange({
+        setUserFormData,
+        setShowErrors,
+        validateField,
+        setCurrentStep,
+    });
+
+    const clickOutside = (e: React.MouseEvent<HTMLDialogElement>) => {
+        if (e.target === e.currentTarget) handleClose();
+    };
+
 
     return (
         <dialog
             ref={dialogRef}
             className={styles.dialog}
-            onClick={(e) => {
-                if (e.target === e.currentTarget) handleClose();
+            onClick={clickOutside}
+            onClose={() => {
+                handleClose()
+                setIsSuccess(false)
             }}
-            onClose={handleClose}
         >
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h2 className={styles.title}>НАПИСАТЬ НАМ</h2>
@@ -50,14 +64,7 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                 <FieldInput
                     id="name"
                     value={userFormData.name}
-                    onChange={(val) => {
-                        setUserFormData((prev) => ({ ...prev, name: val }));
-                        setShowErrors(true);
-                        if (validateField('name', val) === null) {
-                            setShowErrors(false);
-                            setCurrentStep(2);
-                        }
-                    }}
+                    onChange={(val) => handleFieldChange('name', val)}
                     disabled={false}
                     error={getFieldError('name')}
                 />
@@ -66,15 +73,7 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                 <FieldInput
                     id="tel"
                     value={userFormData.tel}
-                    onChange={(val) => {
-                        const formatted = formatPhone(val);
-                        setUserFormData((prev) => ({ ...prev, tel: formatted }));
-                        setShowErrors(true);
-                        if (validateField('tel', formatted) === null) {
-                            setShowErrors(false);
-                            setCurrentStep(3);
-                        }
-                    }}
+                    onChange={(val) => handleFieldChange('tel', val)}
                     disabled={currentStep < 2}
                     error={currentStep > 1 ? getFieldError('tel') : null}
                 />
@@ -84,14 +83,7 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                     isTextArea={true}
                     value={userFormData.message}
                     disabled={currentStep < 3}
-                    onChange={(val) => {
-                        setUserFormData((prev) => ({ ...prev, message: val }));
-                        setShowErrors(true);
-                        if (validateField('message', val) === null) {
-                            setCurrentStep(4);
-                            setShowErrors(false);
-                        }
-                    }}
+                    onChange={(val) => handleFieldChange('message', val)}
                 />
 
                 {isSuccess && <SuccessPopup handleClose={() => {

@@ -18,10 +18,15 @@ export const SuccessPopup = ({
 }: SuccessPopupProps) => {
     const [isVisible, setIsVisible] = useState(true);
 
+    const clickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) handleClose();
+    };
 
 
     return (
-        <div className={styles.overlay}>
+        <div className={styles.overlay}
+            onClick={clickOutside}
+        >
             <div className={styles.content}>
 
                 <h2 className={styles.title}>{title}</h2>
