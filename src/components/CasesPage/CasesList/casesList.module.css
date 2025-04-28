@@ -1,8 +1,7 @@
 .columns {
     display: flex;
-    /* padding-inline: 5%; */
-    width: 80%;
-    gap: 20%;
+    width: 90%;
+    gap: 10%;
 
 
     @media (max-width: 768px) {

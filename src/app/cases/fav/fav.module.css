@@ -6,12 +6,11 @@
 
     @media (max-width:768px) {
         margin-top: 120px;
-        padding-inline: 60px;
 
     }
 
     @media (max-width:425px) {
-        padding-inline: 40px;
+        padding-inline: 20px;
 
     }
 }
@@ -34,7 +33,7 @@
 
 
     @media (max-width: 768px) {
-        column-count: 2;
+        column-count: 1;
 
     }
 }
