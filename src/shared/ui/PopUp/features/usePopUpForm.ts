@@ -34,6 +34,7 @@ export const usePopUpForm = (onClose: () => void) => {
         const result = formDataSchema.safeParse(userFormData);
         return result.success ? null : result.error.format();
     };
+
     const validateField = (field: keyof FormData, value: string) => {
         const partialData = { ...userFormData, [field]: value };
         const result = formDataSchema.safeParse(partialData);
@@ -62,7 +63,6 @@ export const usePopUpForm = (onClose: () => void) => {
 
         console.log("Форма отправлена:", userFormData);
         reset();
-        // onClose();
         setShowErrors(false);
         setCurrentStep(1);
     };

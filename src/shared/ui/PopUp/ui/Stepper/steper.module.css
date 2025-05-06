@@ -1,7 +1,11 @@
-.progress {
+.wrapper {
     display: flex;
     align-items: center;
-    gap: 15px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
 }
 
 .dot {
@@ -9,9 +13,21 @@
     height: 13px;
     border-radius: 50%;
     background: gray;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .active {
+    background: var(--accent-colo2);
+    transform: scale(1.2);
+}
+
+.line {
+    width: 30px;
+    height: 2px;
+    background: gray;
+    transition: background 0.3s ease;
+}
+
+.activeLine {
     background: var(--accent-colo2);
 }

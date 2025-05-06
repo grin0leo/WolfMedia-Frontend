@@ -2,18 +2,14 @@
 import { forwardRef, useState } from 'react';
 import Image from 'next/image';
 
-
-
 import { BasicButton } from '@/shared/ui/BasicButton';
 import { Stepper } from './ui/Stepper';
 
 import styles from './popUp.module.css';
 import { usePopUpForm } from './features/usePopUpForm';
 import { FieldInput } from './ui/Field';
-import { formatPhone } from './features/phoneMask';
 import { SuccessPopup } from '../SuccessPopup';
 import { useFieldChange } from './features/handleOnChange';
-
 
 type PopUpProps = {
     onClose: () => void;
@@ -33,6 +29,7 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
         setShowErrors,
         validateField,
         setCurrentStep,
+
     } = usePopUpForm(onClose);
 
     const { handleFieldChange } = useFieldChange({
@@ -45,7 +42,6 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
     const clickOutside = (e: React.MouseEvent<HTMLDialogElement>) => {
         if (e.target === e.currentTarget) handleClose();
     };
-
 
     return (
         <dialog
@@ -69,7 +65,6 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                     error={getFieldError('name')}
                 />
 
-
                 <FieldInput
                     id="tel"
                     value={userFormData.tel}
@@ -90,7 +85,6 @@ export const PopUp = forwardRef<HTMLDialogElement, PopUpProps>(({ onClose }, ref
                     handleClose()
                     setIsSuccess(false)
                 }} />}
-
 
                 <BasicButton onClick={() => setIsSuccess(true)} disabled={currentStep < 4} type="submit" content="ОТПРАВИТЬ" />
                 <p className={styles.policy}>

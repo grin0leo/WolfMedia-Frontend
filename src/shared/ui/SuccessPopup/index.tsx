@@ -7,7 +7,6 @@ import styles from './succesPopup.module.css';
 interface SuccessPopupProps {
     handleClose: () => void;
     title?: string;
-    // message?: string;
     buttonText?: string;
 }
 
